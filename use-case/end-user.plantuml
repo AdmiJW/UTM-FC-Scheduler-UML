@@ -1,0 +1,44 @@
+@startuml Use Case Diagram - End-User Module
+
+title Use Case Diagram - End-User Module
+left to right direction
+
+' Actors
+"End-user" as EU
+Student --|> EU
+Lecturer --|> EU
+
+
+' Use Cases
+rectangle "UTM FC Scheduler - Staff Scheduling Module" {
+    usecase (UC1\nAuthenticate) as UC1
+    usecase (UC2\nManage Timetable) as UC2
+    usecase (UC3\nExport Timetable) as UC3
+    usecase (UC4\nConfigure Export Preferences) as UC4
+    usecase (UC5\nManage Course) as UC5
+    usecase (UC6\nManage Course Change Subscription) as UC6
+    usecase (UC7\nBrowse Available Courses) as UC7
+    usecase (UC8\nRetrieve Registered Courses) as UC8
+    usecase (UC9\nManage Section) as UC9
+    usecase (UC10\nManage Class) as UC10
+    usecase (UC11\nClash Checking) as UC11
+
+    note "'Manage' includes CRUD operations" as N1
+}
+
+
+' Associations
+EU -- UC1
+EU -- UC2
+UC2 <.. UC3 : <<extends>>
+UC2 <.. UC4 : <<extends>>
+UC2 <.. UC5 : <<extends>>
+UC5 <.. UC6 : <<extends>>
+UC5 <.. UC7 : <<extends>>
+UC5 <.. UC8 : <<extends>>
+UC5 <.. UC9 : <<extends>>
+UC9 <.. UC10 : <<extends>>
+UC10 .> UC11 : <<includes>>
+UC3 .> UC11 : <<includes>>
+
+@enduml

@@ -1,0 +1,40 @@
+@startuml Use Case Diagram - Academic Office Staff Module
+
+title Use Case Diagram - Academic Office Staff Module
+left to right direction
+
+' Actors
+"Academic Office Staff" as AOS
+
+' Use Cases
+rectangle "UTM FC Scheduler - Academic Office Staff Module" {
+    usecase (UC1\nAuthenticate) as UC1
+    usecase (UC2\nManage Venue) as UC2
+    usecase (UC3\nManage Lecturer) as UC3
+    usecase (UC4\nManage Session/Semester) as UC4
+    usecase (UC5\nExport Session/Semester) as UC5
+    usecase (UC6\nManage Course) as UC6
+    usecase (UC7\nManage Section) as UC7
+    usecase (UC8\nManage Class) as UC8
+    usecase (UC9\nClash Checking) as UC9
+    usecase (UC10\nManage Test Case) as UC10
+    usecase (UC11\nExecute Test Case) as UC11
+
+    note "'Manage' includes CRUD operations" as N1
+}
+
+
+' Associations
+AOS -- UC1
+AOS -- UC2
+AOS -- UC3
+AOS -- UC4
+UC4 <.. UC5 : <<extends>>
+UC4 <.. UC6 : <<extends>>
+UC6 <.. UC7 : <<extends>>
+UC7 <.. UC8 : <<extends>>
+UC8 .> UC9 : <<includes>>
+AOS -- UC10
+UC10 <.. UC11 : <<extends>>
+
+@enduml

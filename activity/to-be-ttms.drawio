@@ -1,0 +1,107 @@
+<mxfile host="65bd71144e">
+    <diagram id="cSbgm4wpMA5SfBVYwuiO" name="Page-1">
+        <mxGraphModel dx="1664" dy="552" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="UTM FC Scheduler" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="50" width="230" height="640" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" style="edgeStyle=none;html=1;" parent="2" source="28" target="29" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="Retrieve semester schedule data from database" style="rounded=1;whiteSpace=wrap;html=1;" parent="2" vertex="1">
+                    <mxGeometry x="45" y="180.00370370370365" width="140" height="66.11111111111111" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="Format semester schedule data to export format" style="rounded=1;whiteSpace=wrap;html=1;" parent="2" vertex="1">
+                    <mxGeometry x="45" y="270.00370370370365" width="140" height="66.11111111111111" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="TTMS Web Service Admin" style="swimlane;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="50" width="230" height="640" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" style="edgeStyle=none;html=1;" parent="19" source="24" target="26" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="Login to the Academic Office Staff module" style="rounded=1;whiteSpace=wrap;html=1;" parent="19" vertex="1">
+                    <mxGeometry x="50" y="90.00370370370365" width="140" height="66.11111111111111" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="Export semester schedule" style="rounded=1;whiteSpace=wrap;html=1;" parent="19" vertex="1">
+                    <mxGeometry x="50" y="180.00370370370365" width="140" height="66.11111111111111" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" style="edgeStyle=none;html=1;" parent="19" source="32" target="34" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="Retrieve semester schedule data" style="rounded=1;whiteSpace=wrap;html=1;" parent="19" vertex="1">
+                    <mxGeometry x="50" y="270.00370370370365" width="140" height="66.11111111111111" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" style="edgeStyle=none;html=1;" parent="19" source="34" target="36" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="Upload schedule data to TTMS Web Service for analyzing" style="rounded=1;whiteSpace=wrap;html=1;" parent="19" vertex="1">
+                    <mxGeometry x="50" y="360.00370370370365" width="140" height="66.11111111111111" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="19" source="36" target="38" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="55" y="489"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="42" value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="41" vertex="1" connectable="0">
+                    <mxGeometry x="0.1205" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="44" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="19" source="36" target="43" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="44" vertex="1" connectable="0">
+                    <mxGeometry x="-0.6011" y="4" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="36" value="Timetable arrangement contain issues?" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="19" vertex="1">
+                    <mxGeometry x="60" y="449.9996296296297" width="120" height="77.12962962962963" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="Report issue of the schedule draft" style="rounded=1;whiteSpace=wrap;html=1;" parent="19" vertex="1">
+                    <mxGeometry x="10" y="560" width="90" height="66.11" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;" parent="19" vertex="1">
+                    <mxGeometry x="130" y="576.5274074074073" width="30" height="33.05555555555556" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="Academic Office" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" parent="1" vertex="1">
+                    <mxGeometry x="-80" y="50" width="230" height="640" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="New draft of schedule released&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" parent="22" vertex="1">
+                    <mxGeometry x="45" y="90.00370370370365" width="140" height="66.11111111111111" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;" parent="22" vertex="1">
+                    <mxGeometry x="100" y="40" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;" parent="22" source="3" target="23" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="345" y="90" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="48" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="22" source="46" target="23" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="Modify the schedule to fix issues" style="rounded=1;whiteSpace=wrap;html=1;" parent="22" vertex="1">
+                    <mxGeometry x="45" y="560.0037037037036" width="140" height="66.11111111111111" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" style="edgeStyle=none;html=1;" parent="1" source="23" target="24" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" style="edgeStyle=none;html=1;" parent="1" source="26" target="28" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" style="edgeStyle=none;html=1;" parent="1" source="29" target="32" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="1" source="38" target="46" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
