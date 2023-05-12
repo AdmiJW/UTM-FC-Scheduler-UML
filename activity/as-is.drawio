@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="I93nHw0jhPVj3EZKF7NB" name="Page-1">
-        <mxGraphModel dx="1217" dy="920" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1049" dy="552" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -74,7 +74,7 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="46" value="Modify the schedule to fix issues" style="rounded=1;whiteSpace=wrap;html=1;" parent="2" vertex="1">
-                    <mxGeometry x="30" y="790.0037037037036" width="140" height="66.11111111111111" as="geometry"/>
+                    <mxGeometry x="30" y="650.0037037037036" width="140" height="66.11111111111111" as="geometry"/>
                 </mxCell>
                 <mxCell id="3" value="Student" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="66" vertex="1">
                     <mxGeometry x="200" width="200" height="1080" as="geometry"/>
@@ -109,17 +109,13 @@
                 <mxCell id="4" value="Lecturer" style="swimlane;whiteSpace=wrap;html=1;startSize=23;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="66" vertex="1">
                     <mxGeometry x="400" width="200" height="1080" as="geometry"/>
                 </mxCell>
-                <mxCell id="37" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="4" source="18" target="25" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="37" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="4" source="18" target="36" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="100" y="528.8888888888889" as="targetPoint"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="18" value="Create timetable based on released schedule draft" style="rounded=1;whiteSpace=wrap;html=1;" parent="4" vertex="1">
                     <mxGeometry x="30" y="418.7037037037037" width="140" height="66.11111111111111" as="geometry"/>
-                </mxCell>
-                <mxCell id="39" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="4" source="25" target="36" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="25" value="Analysis report is generated" style="rounded=1;whiteSpace=wrap;html=1;" parent="4" vertex="1">
-                    <mxGeometry x="30" y="528.8888888888889" width="140" height="66.11111111111111" as="geometry"/>
                 </mxCell>
                 <mxCell id="41" style="edgeStyle=orthogonalEdgeStyle;html=1;" parent="4" source="36" target="40" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -129,20 +125,19 @@
                         <mxPoint y="-5" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="36" value="Analysis report is &lt;br&gt;not satisfactory?" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="4" vertex="1">
-                    <mxGeometry x="40" y="650.0925925925926" width="120" height="66.11111111111111" as="geometry"/>
+                <mxCell id="36" value="Clash in the timetable?" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="4" vertex="1">
+                    <mxGeometry x="40" y="540.0025925925926" width="120" height="66.11111111111111" as="geometry"/>
                 </mxCell>
                 <mxCell id="40" value="Notify issue to academic office" style="rounded=1;whiteSpace=wrap;html=1;" parent="4" vertex="1">
-                    <mxGeometry x="30" y="760.2777777777778" width="140" height="66.11111111111111" as="geometry"/>
+                    <mxGeometry x="30" y="649.9977777777779" width="140" height="66.11111111111111" as="geometry"/>
                 </mxCell>
                 <mxCell id="56" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="4" source="36" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="40" y="680.4537037037037" as="sourcePoint"/>
-                        <mxPoint x="100" y="863" as="targetPoint"/>
+                        <mxPoint x="100" y="750" as="targetPoint"/>
                         <Array as="points">
-                            <mxPoint x="10" y="683"/>
-                            <mxPoint x="10" y="770"/>
-                            <mxPoint x="10" y="863"/>
+                            <mxPoint x="10" y="573"/>
+                            <mxPoint x="10" y="750"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
@@ -168,7 +163,7 @@
                         <mxPoint x="-1" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="26" value="Timetable arrangement contain clashes?" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="5" vertex="1">
+                <mxCell id="26" value="Analysis report is &lt;br&gt;not satisfactory" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" parent="5" vertex="1">
                     <mxGeometry x="50" y="523.3796296296297" width="120" height="77.12962962962963" as="geometry"/>
                 </mxCell>
                 <mxCell id="28" value="Report issue of the schedule draft" style="rounded=1;whiteSpace=wrap;html=1;" parent="5" vertex="1">
