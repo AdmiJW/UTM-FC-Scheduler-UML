@@ -1,0 +1,24 @@
+@startuml FR_BDA_04
+title FR_BDA_04 - View Lecturer
+
+
+|#gold|eu| Academic office staff
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The academic office staff opens the "Lecturers" page;
+
+|sys|
+:The system displays the "Lecturers" page;
+
+|eu|
+:The academic office staff enters the search and sort criteria;
+
+|sys|
+:The system filters and sorts the lecturers by the criteria;
+:The lecturers are displayed;
+
+stop
+
+@enduml

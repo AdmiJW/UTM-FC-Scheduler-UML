@@ -1,0 +1,70 @@
+@startuml End-User Module - Domain Model
+skinparam classAttributeIconSize 0
+hide empty members
+
+title End-User Module - Domain Model
+
+
+class EndUser {
+    - id
+    - name
+    - password
+    - email
+    - role
+}
+
+class Student {
+    - matricNo
+}
+
+class Lecturer {
+    - staffID
+}
+
+class Timetable {
+    - id
+    - name
+    - description
+
+    - createdDate
+    - modifiedDate
+    - createdBy
+    - generationConfiguration
+}
+
+class Course {
+    - id
+    - name
+
+    - code
+    - sectionNo
+    - lecturer
+}
+
+class Class {
+    - id
+
+    - dayOfWeek
+    - startTime
+    - endTime
+    - venue
+}
+
+class SubjectNotifier {
+    - id 
+    
+    - sessionSemester
+    - course
+    - sectionNo
+}
+
+
+Student --|> EndUser
+Lecturer --|> EndUser
+EndUser ||-o{ Timetable : "Creates"
+Timetable "1..1" *-- "1..*" Course
+Course "1..1" *-- "0..*" Class
+
+EndUser ||--o{ SubjectNotifier : "Creates"
+
+@enduml

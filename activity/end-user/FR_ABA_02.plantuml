@@ -1,0 +1,33 @@
+@startuml FR_ABA_02
+title FR_ABA_02 - Update Timetable
+
+
+|#gold|eu| End users
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The user clicks on the timetable to edit;
+
+|sys|
+(A)
+:The system displays the timetable information page;
+
+|eu|
+:The user edits the timetable information;
+:The user clicks on the "Save" button;
+
+|sys|
+if (invalid input?) then (yes)
+  :The system displays an invalid input snack-bar message;
+  (A)
+  detach
+else (no)
+endif
+
+|sys|
+:The system displays a successful snack-bar message;
+
+stop
+
+@enduml

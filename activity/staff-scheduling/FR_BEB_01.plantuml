@@ -1,0 +1,24 @@
+@startuml FR_BEB_01
+title FR_BEB_01 - Execute Test Case
+
+
+|#gold|eu| Academic office staff
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The academic office staff clicks on the "Execute" button
+of the test case to be executed;
+
+|sys|
+:The system performs the searching algorithm to attempt
+different possibilities of undertaking course sections
+without clashes;
+
+:The system displays the various possibilities, if any, of
+undertaking different course sections without clashes in a
+result page;
+
+stop
+
+@enduml

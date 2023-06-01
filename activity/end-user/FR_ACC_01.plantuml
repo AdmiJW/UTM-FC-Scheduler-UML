@@ -1,0 +1,50 @@
+@startuml FR_ACC_01
+title FR_ACC_01 - Browse & Add Offered Courses
+
+
+|#gold|eu| End users
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+
+:The user clicks on the "Browse" button;
+
+|sys|
+:The system displays the offered courses model window;
+
+|eu|
+:The user selects the session semester;
+
+|sys|
+:The modal window displays the list of offered subjects
+of the selected session semester;
+
+|eu|
+:The user selects the subject;
+
+|sys|
+:The modal window displays the list of sections of the
+selected subject;
+
+|eu|
+:The user selects the section to be added;
+
+|sys|
+:The modal window displays the confirmation to add the course;
+
+|eu|
+if (cancel?) then (yes)
+    :The user clicks on the "Cancel" button;
+    |sys|
+    :The system closes the confirmation modal window;
+    stop
+else (no)
+    :The user clicks on the "Confirm" button;
+    |sys|
+    :The system adds the selected course;
+    :The system displays a successful snack-bar message;
+endif
+
+stop
+@enduml

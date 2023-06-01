@@ -1,0 +1,24 @@
+@startuml FR_ABA_04
+title FR_ABA_04 - View Timetable
+
+
+|#gold|eu| End users
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The user opens the "My Timetables" page;
+
+|sys|
+:The system displays the "My Timetables" page;
+
+|eu|
+:The user enters the search and sort criteria;
+
+|sys|
+:The system filters and sorts the timetables by the criteria;
+:The timetables are displayed;
+
+stop
+
+@enduml

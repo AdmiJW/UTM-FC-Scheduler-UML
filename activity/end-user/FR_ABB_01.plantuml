@@ -1,0 +1,35 @@
+@startuml FR_ABB_01
+title FR_ABB_01 - Export Timetable
+
+
+|#gold|eu| End users
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The user clicks on the "Export" button 
+on an existing timetable instance;
+
+|sys|
+:The system displays an export modal window;
+
+|eu|
+:The user selects the type of export;
+:The user clicks on the "Export" button;
+
+|sys|
+:(FR_ABC_01) 
+The system performs clash checking
+on the timetable instance;
+
+:The system converts the timetable into
+the specified export format;
+
+:The converted file is automatically
+downloaded to the user's device;
+
+:The system displays a success snack-bar message;
+
+stop
+
+@enduml

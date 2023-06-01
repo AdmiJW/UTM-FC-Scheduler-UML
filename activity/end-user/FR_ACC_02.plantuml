@@ -1,0 +1,38 @@
+@startuml FR_ACC_02
+title Retrieve Registered Courses - Lecturer
+
+
+|#gold|eu| Lecturer
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+
+:The lecturer clicks on the "Retrieve courses" button;
+
+|sys|
+:The system displays the "Retrieve courses (Lecturer)" model window,
+which initially has a list of session semesters;
+
+|eu|
+:The lecturer selects the session semester;
+
+|sys|
+:The modal window displays a list of registered subjects of the
+selected semester by said lecturer;
+
+|eu|
+if (cancel?) then (yes)
+    :The lecturer clicks on the "Cancel" button;
+    :The system closes the confirmation modal window;
+else (no)
+    :The lecturer clicks on the "Confirm" button;
+    |sys|
+    :The system adds the registered courses;
+    :The system displays a successful snack-bar message;
+    :The system closes the confirmation modal window;
+endif
+
+|eu|
+stop
+@enduml

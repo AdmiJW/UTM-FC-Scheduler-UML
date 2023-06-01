@@ -1,0 +1,36 @@
+@startuml Academic Office Staff Module - Course Module
+
+title Academic Office Staff Module - Course Module
+left to right direction
+
+' Use case ID format: FR_BBC_00
+' FR: Functional Requirement
+' A: Module. A for End-User, B for Academic Office Staff
+' B: Sub-module
+' C: Sub-module group
+' 00: Use case number
+
+
+' Actors
+"Academic Office Staff" as AOS
+
+' Use Cases
+rectangle "UTM FC Scheduler - Academic Office Staff Module" {
+package "B - Session Semester Module" {
+    package "F - Course Module" {
+        usecase (FR_BFA_01 \n Add Course) as FR_BFA_01
+        usecase (FR_BFA_02 \n Edit Course) as FR_BFA_02
+        usecase (FR_BFA_03 \n Delete Course) as FR_BFA_03
+        usecase (FR_BFA_04 \n View Course) as FR_BFA_04
+    }
+}
+}
+
+' Associations
+
+AOS -- FR_BFA_01
+AOS -- FR_BFA_02
+AOS -- FR_BFA_03
+AOS -- FR_BFA_04
+
+@enduml

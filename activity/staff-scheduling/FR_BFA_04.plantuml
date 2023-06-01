@@ -1,0 +1,24 @@
+@startuml FR_BFA_04
+title FR_BFA_04 - View Course
+
+
+|#gold|eu| Academic office staff
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The academic office staff opens the "Courses" page;
+
+|sys|
+:The system displays the "Courses" page;
+
+|eu|
+:The academic office staff enters the search and sort criteria;
+
+|sys|
+:The system filters and sorts the courses by the criteria;
+:The courses are displayed;
+
+stop
+
+@enduml

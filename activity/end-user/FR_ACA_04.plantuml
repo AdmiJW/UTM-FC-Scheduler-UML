@@ -1,0 +1,24 @@
+@startuml FR_ACA_04
+title FR_ACA_04 - View Course
+
+
+|#gold|eu| End users
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The user opens the "Courses" page;
+
+|sys|
+:The system displays the "Courses" page;
+
+|eu|
+:The user enters the search and sort criteria;
+
+|sys|
+:The system filters and sorts the courses by the criteria;
+:The courses are displayed;
+
+stop
+
+@enduml

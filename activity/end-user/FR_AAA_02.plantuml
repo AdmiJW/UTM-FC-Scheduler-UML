@@ -1,0 +1,25 @@
+@startuml FR_AAA_02
+title FR_AAA_02 - Logout
+
+
+|#gold|eu| End users
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The user clicks the "Sign Out" button;
+
+|sys|
+:The system displays the loading indicator;
+
+if (error occurred?) then (yes)
+  |sys|
+  :The system displays a sign-out failed snack-bar message;
+else (no)
+  |sys|
+  :The system redirects the user to the main page;
+endif
+
+stop
+
+@enduml

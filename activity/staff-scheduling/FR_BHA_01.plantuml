@@ -1,0 +1,18 @@
+@startuml FR_BHA_01
+title FR_BHA_01 - Add Class
+
+
+|#gold|eu| Academic office staff
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The academic office staff clicks the "New Class" button;
+
+|sys|
+:The system creates a new class;
+:A successful snack-bar message will be displayed;
+
+stop
+
+@enduml

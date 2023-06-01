@@ -1,0 +1,50 @@
+@startuml End-User Module - Course Module
+
+title End-User Module - Course Module
+left to right direction
+
+
+' Actors
+"End-user" as EU
+Student --|> EU
+Lecturer --|> EU
+
+
+' Use Cases
+rectangle "UTM FC Scheduler - End User Module" {
+
+
+package "B - Timetable Module" {
+   
+    package "C - Course Module" {
+        ' CRUD Course operation
+        usecase (FR_ACA_01 \n Create Course) as FR_ACA_01
+        usecase (FR_ACA_02 \n Update Course) as FR_ACA_02
+        usecase (FR_ACA_03 \n Delete Course) as FR_ACA_03
+        usecase (FR_ACA_04 \n View Course) as FR_ACA_04
+
+        ' CRUD Course Notifier operation
+        usecase (FR_ACB_01 \n Add Course Notifier) as FR_ACB_01
+        usecase (FR_ACB_02 \n Remove Course Notifier) as FR_ACB_02
+        usecase (FR_ACB_03 \n View Course Notifier) as FR_ACB_03
+
+        ' Alternative add course operation
+        usecase (FR_ACC_01 \n Browse & Add Offered Courses) as FR_ACC_01
+        usecase (FR_ACC_02 \n Retrieve Registered Courses - Lecturer) as FR_ACC_02
+        usecase (FR_ACC_03 \n Retrieve Registered Courses - Student) as FR_ACC_03
+    }
+}
+}
+
+' Associations
+EU -- FR_ACA_01
+EU -- FR_ACA_02
+EU -- FR_ACA_03
+EU -- FR_ACA_04
+EU -- FR_ACB_01
+EU -- FR_ACB_02
+EU -- FR_ACB_03
+FR_ACA_01 <.. FR_ACC_01 : <<extends>>
+FR_ACA_01 <.. FR_ACC_02 : <<extends>>
+FR_ACA_01 <.. FR_ACC_03 : <<extends>>
+@enduml

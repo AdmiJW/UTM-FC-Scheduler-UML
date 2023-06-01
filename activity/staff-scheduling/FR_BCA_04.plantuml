@@ -1,0 +1,24 @@
+@startuml FR_BCA_04
+title FR_BCA_04 - View Venue
+
+
+|#gold|eu| Academic office staff
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The academic office staff opens the "Venues" page;
+
+|sys|
+:The system displays the "Venues" page;
+
+|eu|
+:The academic office staff enters the search and sort criteria;
+
+|sys|
+:The system filters and sorts the venues by the criteria;
+:The venues are displayed;
+
+stop
+
+@enduml

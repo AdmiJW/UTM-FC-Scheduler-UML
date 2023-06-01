@@ -1,0 +1,30 @@
+@startuml FR_ADA_03
+title FR_ADA_03 - Delete Class
+
+
+|#gold|eu| End users
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The user clicks on the "Delete" button of the class to be deleted;
+
+|sys|
+(A)
+:The system displays the confirmation modal window;
+
+if (cancel?) then (yes)
+    |eu|
+    :The user clicks on the "Cancel" button;
+    |sys|
+    :The system closes the confirmation modal window;
+else (no)
+    |sys|
+    :The system deletes the class;
+    :The system closes the confirmation modal window;
+    :The system displays a deletion successful snack-bar message;
+endif
+
+stop
+
+@enduml

@@ -1,0 +1,18 @@
+@startuml FR_BBA_01
+title FR_BBA_01 - Add Session Semester
+
+
+|#gold|eu| Academic office staff
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The academic office staff clicks the "New Session Semester" button;
+
+|sys|
+:The system creates a new session semester;
+:A successful snack-bar message will be displayed;
+
+stop
+
+@enduml

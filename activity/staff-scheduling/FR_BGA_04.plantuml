@@ -1,0 +1,24 @@
+@startuml FR_BGA_04
+title FR_BGA_04 - View Course
+
+
+|#gold|eu| Academic office staff
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The academic office staff opens the "Sections" page;
+
+|sys|
+:The system displays the "Sections" page;
+
+|eu|
+:The academic office staff enters the search and sort criteria;
+
+|sys|
+:The system filters and sorts the sections by the criteria;
+:The sections are displayed;
+
+stop
+
+@enduml

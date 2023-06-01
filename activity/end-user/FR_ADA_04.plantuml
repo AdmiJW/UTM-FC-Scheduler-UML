@@ -1,0 +1,18 @@
+@startuml FR_ADA_04
+title FR_ADA_04 - View Class
+
+
+|#gold|eu| End users
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The user opens the course information page;
+
+|sys|
+:The system displays the course information page.
+The classes are displayed;
+
+stop
+
+@enduml

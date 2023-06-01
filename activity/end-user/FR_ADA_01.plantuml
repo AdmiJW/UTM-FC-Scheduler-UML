@@ -1,0 +1,18 @@
+@startuml FR_ADA_01
+title FR_ADA_01 - Create Class
+
+
+|#gold|eu| End users
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The user clicks the "New Class" button;
+
+|sys|
+:The system creates a new class;
+:A successful snack-bar message will be displayed;
+
+stop
+
+@enduml

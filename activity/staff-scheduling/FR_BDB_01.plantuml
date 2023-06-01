@@ -1,0 +1,29 @@
+@startuml FR_BDB_01
+title FR_BDB_01 - Generate Lecturer Timetable
+
+
+|#gold|eu| Academic office staff
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The academic office staff clicks on the "Generate" button on
+an existing lecturer instance;
+
+|sys|
+:The system displays the loading indicator;
+
+:(FR_BBC_01)
+The system performs clash checking on the lecturer's timetable;
+
+:The system runs the generation algorithm to generate
+a visual timetable for the lecturer;
+
+:The system displays the generated timetable;
+
+:The system displays a successful snack-bar message;
+
+
+stop
+
+@enduml

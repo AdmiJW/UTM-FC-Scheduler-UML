@@ -1,0 +1,18 @@
+@startuml FR_BHA_04
+title FR_BHA_04 - View Class
+
+
+|#gold|eu| Academic office staff
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The academic office staff opens the section information page;
+
+|sys|
+:The system displays the section information page;
+:The system displays the classes of the section;
+
+stop
+
+@enduml

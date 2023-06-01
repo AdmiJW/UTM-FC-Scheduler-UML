@@ -1,0 +1,35 @@
+@startuml End-User Module - Class Module
+
+title End-User Module - Class Module
+left to right direction
+
+
+' Actors
+"End-user" as EU
+Student --|> EU
+Lecturer --|> EU
+
+
+' Use Cases
+rectangle "UTM FC Scheduler - End User Module" {
+
+
+package "B - Timetable Module" {
+    package "C - Course Module" {
+        package "D - Class Module" {
+            ' CRUD Class operation
+            usecase (FR_ADA_01 \n Create Class) as FR_ADA_01
+            usecase (FR_ADA_02 \n Update Class) as FR_ADA_02
+            usecase (FR_ADA_03 \n Delete Class) as FR_ADA_03
+            usecase (FR_ADA_04 \n View Class) as FR_ADA_04
+        }
+    }
+}
+}
+
+' Associations
+EU -- FR_ADA_01
+EU -- FR_ADA_02
+EU -- FR_ADA_03
+EU -- FR_ADA_04
+@enduml

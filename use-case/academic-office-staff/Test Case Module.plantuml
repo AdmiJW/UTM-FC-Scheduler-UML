@@ -1,0 +1,39 @@
+@startuml Academic Office Staff Module - Test Case Module
+
+title Academic Office Staff Module - Test Case Module
+left to right direction
+
+' Use case ID format: FR_BBC_00
+' FR: Functional Requirement
+' A: Module. A for End-User, B for Academic Office Staff
+' B: Sub-module
+' C: Sub-module group
+' 00: Use case number
+
+
+' Actors
+"Academic Office Staff" as AOS
+
+' Use Cases
+rectangle "UTM FC Scheduler - Academic Office Staff Module" {
+package "B - Session Semester Module" {
+    package "E - Test Case Module" {
+        usecase (FR_BEA_01 \n Add Test Case) as FR_BEA_01
+        usecase (FR_BEA_02 \n Edit Test Case) as FR_BEA_02
+        usecase (FR_BEA_03 \n Delete Test Case) as FR_BEA_03
+        usecase (FR_BEA_04 \n View Test Case) as FR_BEA_04
+
+        usecase (FR_BEB_01 \n Execute Test Case) as FR_BEB_01
+    }
+}
+}
+
+' Associations
+
+AOS -- FR_BEA_01
+AOS -- FR_BEA_02
+AOS -- FR_BEA_03
+AOS -- FR_BEA_04
+AOS -- FR_BEB_01
+
+@enduml

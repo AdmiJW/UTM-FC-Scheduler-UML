@@ -1,0 +1,18 @@
+@startuml FR_BCA_01
+title FR_BCA_01 - Add Venue
+
+
+|#gold|eu| Academic office staff
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The academic office staff clicks the "New Venue" button;
+
+|sys|
+:The system creates a new venue instance;
+:A successful snack-bar message will be displayed;
+
+stop
+
+@enduml

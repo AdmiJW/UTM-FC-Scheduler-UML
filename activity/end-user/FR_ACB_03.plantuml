@@ -1,0 +1,35 @@
+@startuml FR_ACB_03
+title FR_ACB_03 - View Course Notifier
+
+
+|#gold|eu| End users
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The user opens the "Course Notifiers" page;
+
+|sys|
+:The system displays the "Course Notifiers" page;
+
+:The system compares the cached subject data with the
+updated subject data from the system back-end;
+
+if (inconsistencies found?) then (yes)
+    :The system displays the inconsistencies modal window displaying
+    the list of changes that had occurred;
+    :The system updates the locally cached subject data to reflect
+    the update;
+else (no)
+endif;
+
+|eu|
+:The user enters the search and sort criteria;
+
+|sys|
+:The system filters and sorts the course notifiers by the criteria;
+:The course notifiers are displayed;
+
+stop
+
+@enduml

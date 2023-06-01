@@ -1,0 +1,51 @@
+@startuml FR_AAA_01
+title FR_AAA_01 - Login
+
+
+|#gold|eu| End users
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The user clicks the "Sign In" button;
+
+|sys|
+:The system displays the sign-in modal window;
+
+|eu|
+' #Aqua:SIGN_IN;
+(A)
+
+if (user is student?) then (yes)
+    |eu|
+    :The student enters the matric number and password;
+(no) elseif (user is lecturer?) then (yes)
+    |eu|
+    :The lecturer enters the staff ID and password;
+(no) elseif (cancel?) then (yes)
+    |eu|
+    :The user clicks on the cancel button;
+    |sys|
+    :The system closes the sign-in modal window;
+    stop
+else (no)
+endif
+
+|eu|
+:The user clicks on the submit button;
+|sys|
+:The system displays the loading indicator;
+
+if (sign in valid?) then (yes)
+    |sys|
+    :The system displays a sign-in successful snack-bar message.
+    :The system closes the sign-in modal window;
+else (no)
+    |sys|
+    :The system displays a failure snack-bar message;
+    (A)
+    detach
+endif
+stop
+
+@enduml

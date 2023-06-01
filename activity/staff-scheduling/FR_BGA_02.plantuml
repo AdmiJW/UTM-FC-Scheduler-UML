@@ -1,0 +1,34 @@
+@startuml FR_BGA_02
+title FR_BGA_02 - Edit Section
+
+
+|#gold|eu| Academic office staff
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The academic office staff clicks on the section to edit;
+
+|sys|
+:The system displays the section edit page;
+
+|eu|
+(A)
+:The academic office staff edits the section information;
+:The academic office staff clicks on the "Save" button;
+
+|sys|
+if (invalid input?) then (yes)
+  :The system displays an invalid input snack-bar message;
+  (A)
+  detach
+else (no)
+endif
+
+|sys|
+:The system updates the section;
+:The system displays a successful snack-bar message;
+
+stop
+
+@enduml

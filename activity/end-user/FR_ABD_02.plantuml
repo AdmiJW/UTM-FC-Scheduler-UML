@@ -1,0 +1,31 @@
+@startuml FR_ABD_02
+title FR_ABD_02 - Configure Generation Preferences
+
+
+|#gold|eu| End users
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+
+(A)
+:The user configures the timetable
+generation preferences;
+
+:The user clicks the "Confirm" button;
+
+|sys|
+if (input errors?) then (yes)
+    :The system displays an input-error snack-bar message;
+    (A)
+    detach
+else (no)
+endif
+
+:The system saves the configuration;
+
+:The system displays a success snack-bar message;
+
+stop
+
+@enduml

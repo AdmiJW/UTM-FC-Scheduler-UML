@@ -1,0 +1,40 @@
+@startuml Academic Office Staff Module - Session Semester Module
+
+title Academic Office Staff Module - Session Semester Module
+left to right direction
+
+' Use case ID format: FR_BBC_00
+' FR: Functional Requirement
+' A: Module. A for End-User, B for Academic Office Staff
+' B: Sub-module
+' C: Sub-module group
+' 00: Use case number
+
+
+' Actors
+"Academic Office Staff" as AOS
+
+' Use Cases
+rectangle "UTM FC Scheduler - Academic Office Staff Module" {
+
+package "B - Session Semester Module" {
+    usecase (FR_BBA_01 \n Add Session Semester) as FR_BBA_01
+    usecase (FR_BBA_02 \n Edit Session Semester) as FR_BBA_02
+    usecase (FR_BBA_03 \n Delete Session Semester) as FR_BBA_03
+    usecase (FR_BBA_04 \n View Session Semester) as FR_BBA_04
+
+    usecase (FR_BBB_01 \n Export Session Semester) as FR_BBB_01
+
+    usecase (FR_BBC_01 \n Clash checking) as FR_BBC_01
+}
+}
+
+' Associations
+AOS -- FR_BBA_01
+AOS -- FR_BBA_02
+AOS -- FR_BBA_03
+AOS -- FR_BBA_04
+AOS -- FR_BBB_01
+FR_BBB_01 <.. FR_BBC_01 : <<include>>
+
+@enduml

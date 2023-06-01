@@ -1,0 +1,135 @@
+@startuml Use Case Diagram - Academic Office Staff Module
+
+title Use Case Diagram - Academic Office Staff Module
+left to right direction
+
+' Use case ID format: FR_BBC_00
+' FR: Functional Requirement
+' A: Module. A for End-User, B for Academic Office Staff
+' B: Sub-module
+' C: Sub-module group
+' 00: Use case number
+
+
+' Actors
+"Academic Office Staff" as AOS
+
+' Use Cases
+rectangle "UTM FC Scheduler - Academic Office Staff Module" {
+package "A - Auth Module" {
+    usecase (FR_BAA_01 \n Login) as FR_BAA_01
+    usecase (FR_BAA_02 \n Logout) as FR_BAA_02
+}
+
+
+package "B - Session Semester Module" {
+    usecase (FR_BBA_01 \n Add Session Semester) as FR_BBA_01
+    usecase (FR_BBA_02 \n Edit Session Semester) as FR_BBA_02
+    usecase (FR_BBA_03 \n Delete Session Semester) as FR_BBA_03
+    usecase (FR_BBA_04 \n View Session Semester) as FR_BBA_04
+
+    usecase (FR_BBB_01 \n Export Session Semester) as FR_BBB_01
+
+    usecase (FR_BBC_01 \n Clash checking) as FR_BBC_01
+
+    
+    package "C - Venue Module" {
+        usecase (FR_BCA_01 \n Add Venue) as FR_BCA_01
+        usecase (FR_BCA_02 \n Edit Venue) as FR_BCA_02
+        usecase (FR_BCA_03 \n Delete Venue) as FR_BCA_03
+        usecase (FR_BCA_04 \n View Venue) as FR_BCA_04
+
+        usecase (FR_BCB_01 \n Generate Venue Timetable) as FR_BCB_01
+    }
+
+
+    package "D - Lecturer Module" {
+        usecase (FR_BDA_01 \n Add Lecturer) as FR_BDA_01
+        usecase (FR_BDA_02 \n Edit Lecturer) as FR_BDA_02
+        usecase (FR_BDA_03 \n Delete Lecturer) as FR_BDA_03
+        usecase (FR_BDA_04 \n View Lecturer) as FR_BDA_04
+
+        usecase (FR_BDB_01 \n Generate Lecturer Timetable) as FR_BDB_01
+    }
+
+    
+    package "E - Test Case Module" {
+        usecase (FR_BEA_01 \n Add Test Case) as FR_BEA_01
+        usecase (FR_BEA_02 \n Edit Test Case) as FR_BEA_02
+        usecase (FR_BEA_03 \n Delete Test Case) as FR_BEA_03
+        usecase (FR_BEA_04 \n View Test Case) as FR_BEA_04
+
+        usecase (FR_BEB_01 \n Execute Test Case) as FR_BEB_01
+    }
+
+
+    package "F - Course Module" {
+        usecase (FR_BFA_01 \n Add Course) as FR_BFA_01
+        usecase (FR_BFA_02 \n Edit Course) as FR_BFA_02
+        usecase (FR_BFA_03 \n Delete Course) as FR_BFA_03
+        usecase (FR_BFA_04 \n View Course) as FR_BFA_04
+
+        package "G - Section Module" {
+            usecase (FR_BGA_01 \n Add Section) as FR_BGA_01
+            usecase (FR_BGA_02 \n Edit Section) as FR_BGA_02
+            usecase (FR_BGA_03 \n Delete Section) as FR_BGA_03
+            usecase (FR_BGA_04 \n View Section) as FR_BGA_04
+
+            package "H - Class Module" {
+                usecase (FR_BHA_01 \n Add Class) as FR_BHA_01
+                usecase (FR_BHA_02 \n Edit Class) as FR_BHA_02
+                usecase (FR_BHA_03 \n Delete Class) as FR_BHA_03
+                usecase (FR_BHA_04 \n View Class) as FR_BHA_04
+            }
+        }
+    }
+}
+}
+
+' Associations
+AOS -- FR_BAA_01
+AOS -- FR_BAA_02
+
+AOS -- FR_BBA_01
+AOS -- FR_BBA_02
+AOS -- FR_BBA_03
+AOS -- FR_BBA_04
+AOS -- FR_BBB_01
+FR_BBB_01 <.. FR_BBC_01 : <<include>>
+
+AOS -- FR_BCA_01
+AOS -- FR_BCA_02
+AOS -- FR_BCA_03
+AOS -- FR_BCA_04
+AOS -- FR_BCB_01
+
+AOS -- FR_BDA_01
+AOS -- FR_BDA_02
+AOS -- FR_BDA_03
+AOS -- FR_BDA_04
+AOS -- FR_BDB_01
+
+AOS -- FR_BEA_01
+AOS -- FR_BEA_02
+AOS -- FR_BEA_03
+AOS -- FR_BEA_04
+AOS -- FR_BEB_01
+
+AOS -- FR_BFA_01
+AOS -- FR_BFA_02
+AOS -- FR_BFA_03
+AOS -- FR_BFA_04
+
+AOS -- FR_BGA_01
+AOS -- FR_BGA_02
+AOS -- FR_BGA_03
+AOS -- FR_BGA_04
+
+AOS -- FR_BHA_01
+AOS -- FR_BHA_02
+AOS -- FR_BHA_03
+AOS -- FR_BHA_04
+FR_BHA_01 <.. FR_BBC_01 : <<include>>
+FR_BHA_02 <.. FR_BBC_01 : <<include>>
+
+@enduml

@@ -1,0 +1,46 @@
+@startuml FR_AAA_01
+title FR_AAA_01 - Login
+skinparam maxMessageSize 125
+
+
+actor "End User" as eu
+boundary MainPage as fe
+control AuthController as ct
+' entity Entity as en
+database Database as db
+
+activate eu
+
+eu -> fe ++ : Click Login button
+fe -> fe -- : showLoginModal()
+
+
+alt User is Student
+    eu -> fe ++ : Matric no, password
+    deactivate fe
+else User is Lecturer
+    eu -> fe ++ : Staff ID, password
+    deactivate fe
+else User cancels login
+    eu -> fe ++ : Click Cancel button
+    fe -> fe --: hideLoginModal()
+end
+
+
+eu -> fe ++ : Click Submit button
+fe -> fe : showLoadingIndicator()
+fe -> ct ++ : login(SignInRequestDTO)
+ct -> db ++ : findUser(SignInRequestDTO)
+db --> ct -- : User?
+ct --> fe -- : SignInResponseDTO
+fe -> fe : onLoginSuccess(SignInResponseDTO)
+fe -> fe : showSuccessSnackbar()
+fe -> fe : hideLoginModal()
+
+alt Invalid sign in
+    fe -> fe : showErrorSnackbar()
+end
+
+deactivate eu
+
+@enduml

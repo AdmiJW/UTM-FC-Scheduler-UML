@@ -1,0 +1,24 @@
+@startuml FR_BBA_04
+title FR_BBA_04 - View Session Semester
+
+
+|#gold|eu| Academic office staff
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The academic office staff opens the "Session semesters" page;
+
+|sys|
+:The system displays the "Session semesters" page;
+
+|eu|
+:The academic office staff enters the search and sort criteria;
+
+|sys|
+:The system filters and sorts the session semesters by the criteria;
+:The session semesters are displayed;
+
+stop
+
+@enduml

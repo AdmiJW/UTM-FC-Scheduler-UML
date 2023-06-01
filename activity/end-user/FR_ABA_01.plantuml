@@ -1,0 +1,18 @@
+@startuml FR_ABA_01
+title FR_ABA_01 - Create Timetable
+
+
+|#gold|eu| End users
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The user clicks the "New Timetable" button;
+
+|sys|
+:The system creates a new timetable;
+:A successful snack-bar message will be displayed;
+
+stop
+
+@enduml

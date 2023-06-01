@@ -1,0 +1,35 @@
+@startuml FR_BEA_02
+title FR_BEA_02 - Edit Test Case
+
+
+|#gold|eu| Academic office staff
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The academic office staff clicks on the test case to edit;
+
+|sys|
+:The system displays the test case edit page;
+
+|eu|
+(A)
+:The academic office staff edits the test case by including
+courses and sections to test;
+:The academic office staff clicks on the "Save" button;
+
+|sys|
+if (invalid input?) then (yes)
+  :The system displays an invalid input snack-bar message;
+  (A)
+  detach
+else (no)
+endif
+
+|sys|
+:The system updates the test case;
+:The system displays a successful snack-bar message;
+
+stop
+
+@enduml

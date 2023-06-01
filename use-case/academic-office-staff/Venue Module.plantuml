@@ -1,0 +1,37 @@
+@startuml Academic Office Staff Module - Venue Module
+
+title Academic Office Staff Module - Venue Module
+left to right direction
+
+' Use case ID format: FR_BBC_00
+' FR: Functional Requirement
+' A: Module. A for End-User, B for Academic Office Staff
+' B: Sub-module
+' C: Sub-module group
+' 00: Use case number
+
+
+' Actors
+"Academic Office Staff" as AOS
+
+' Use Cases
+rectangle "UTM FC Scheduler - Academic Office Staff Module" {
+package "B - Session Semester Module" {
+    package "C - Venue Module" {
+        usecase (FR_BCA_01 \n Add Venue) as FR_BCA_01
+        usecase (FR_BCA_02 \n Edit Venue) as FR_BCA_02
+        usecase (FR_BCA_03 \n Delete Venue) as FR_BCA_03
+        usecase (FR_BCA_04 \n View Venue) as FR_BCA_04
+
+        usecase (FR_BCB_01 \n Generate Venue Timetable) as FR_BCB_01
+    }
+}
+}
+
+' Associations
+AOS -- FR_BCA_01
+AOS -- FR_BCA_02
+AOS -- FR_BCA_03
+AOS -- FR_BCA_04
+AOS -- FR_BCB_01
+@enduml

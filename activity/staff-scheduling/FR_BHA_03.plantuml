@@ -1,0 +1,31 @@
+@startuml FR_BHA_03
+title FR_BHA_03 - Delete Class
+
+
+|#gold|eu| Academic office staff
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The academic office staff clicks on the "Delete" button 
+of the class to be deleted;
+
+|sys|
+(A)
+:The system displays the confirmation modal window;
+
+if (cancel?) then (yes)
+    |eu|
+    :The academic office staff clicks on the "Cancel" button;
+    |sys|
+    :The system closes the confirmation modal window;
+else (no)
+    |sys|
+    :The system deletes the class;
+    :The system closes the confirmation modal window;
+    :The system displays a deletion successful snack-bar message;
+endif
+
+stop
+
+@enduml

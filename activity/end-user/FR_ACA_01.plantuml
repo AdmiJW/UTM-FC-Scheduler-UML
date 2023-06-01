@@ -1,0 +1,18 @@
+@startuml FR_ACA_01
+title FR_ACA_01 - Create Course
+
+
+|#gold|eu| End users
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The user clicks the "New Course" button;
+
+|sys|
+:The system creates a new course;
+:A successful snack-bar message will be displayed;
+
+stop
+
+@enduml

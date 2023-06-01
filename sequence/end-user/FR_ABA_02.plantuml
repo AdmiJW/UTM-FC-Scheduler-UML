@@ -1,0 +1,33 @@
+@startuml FR_ABA_02
+title FR_ABA_02 - Update Timetable
+skinparam maxMessageSize 125
+
+actor "End User" as eu
+boundary "Timetable Page" as fe
+boundary "Timetable Details Page" as fe2
+control "TimetableController" as ct
+' entity "Timetable" as en
+' database "Database" as db
+
+activate eu
+
+eu -> fe ++ : Click on the timetable to edit
+fe -> ct ++-- : getTimetableDetailsPage()
+ct --> fe2 ++-- : TimetableDetailsPage
+deactivate fe2
+
+eu -> fe2 ++ : Edits the timetable details
+eu -> fe2 : Clicks on the Save button
+
+fe2 -> fe2 : updateTimetable(updatedTimetable)
+fe2 -> fe2 : showSuccessSnackbar(msg)
+
+alt Invalid input
+    fe2 -> fe2 : showFailureSnackbar(msg)
+end
+
+
+
+deactivate eu
+
+@enduml

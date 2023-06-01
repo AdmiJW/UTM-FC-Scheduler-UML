@@ -1,0 +1,41 @@
+@startuml FR_ABB_02
+title FR_ABB_02 - Import Timetable
+
+
+|#gold|eu| End users
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+
+:The user clicks on the "Import Timetable" button;
+
+|sys|
+:The system displays an import modal window;
+
+|eu|
+:The user selects the file to import;
+
+:The user clicks on the "Import" button;
+
+|sys|
+:The system deserialize the file;
+
+:(FR_ABC_01)
+The system performs clash checking
+on the imported timetable;
+
+if (file is invalid?) then (yes)
+    :The system displays an invalid input snack-bar message;
+    stop
+else (no)
+endif
+
+:The system creates the timetable instance;
+
+:The system displays a successful snack-bar message;
+
+
+stop
+
+@enduml

@@ -1,0 +1,37 @@
+@startuml Academic Office Staff Module - Lecturer Module
+
+title Academic Office Staff Module - Lecturer Module
+left to right direction
+
+' Use case ID format: FR_BBC_00
+' FR: Functional Requirement
+' A: Module. A for End-User, B for Academic Office Staff
+' B: Sub-module
+' C: Sub-module group
+' 00: Use case number
+
+
+' Actors
+"Academic Office Staff" as AOS
+
+' Use Cases
+rectangle "UTM FC Scheduler - Academic Office Staff Module" {
+package "B - Session Semester Module" {
+    package "D - Lecturer Module" {
+        usecase (FR_BDA_01 \n Add Lecturer) as FR_BDA_01
+        usecase (FR_BDA_02 \n Edit Lecturer) as FR_BDA_02
+        usecase (FR_BDA_03 \n Delete Lecturer) as FR_BDA_03
+        usecase (FR_BDA_04 \n View Lecturer) as FR_BDA_04
+
+        usecase (FR_BDB_01 \n Generate Lecturer Timetable) as FR_BDB_01
+    }
+}
+}
+
+' Associations
+AOS -- FR_BDA_01
+AOS -- FR_BDA_02
+AOS -- FR_BDA_03
+AOS -- FR_BDA_04
+AOS -- FR_BDB_01
+@enduml

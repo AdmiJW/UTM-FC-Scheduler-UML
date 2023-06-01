@@ -1,0 +1,24 @@
+@startuml FR_BEA_04
+title FR_BEA_04 - View Test Case
+
+
+|#gold|eu| Academic office staff
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The academic office staff opens the "Test Cases" page;
+
+|sys|
+:The system displays the "Test Cases" page;
+
+|eu|
+:The academic office staff enters the search and sort criteria;
+
+|sys|
+:The system filters and sorts the test cases by the criteria;
+:The test cases are displayed;
+
+stop
+
+@enduml

@@ -1,0 +1,26 @@
+@startuml FR_ABC_01
+title FR_ABC_01 - Clash Checking
+
+
+|#gold|eu| End users
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+
+|sys|
+:The system performs clash checking by
+running the clash check algorithm;
+
+if (clash found?) then (yes)
+    |sys|
+    :The system displays a clash report modal
+    window showing the details of detected clashes;
+else (no)
+    |sys|
+    :The system displays a no-errors snack-bar message;
+endif
+
+stop
+
+@enduml

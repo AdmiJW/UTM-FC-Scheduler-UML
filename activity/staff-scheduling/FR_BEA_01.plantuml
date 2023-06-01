@@ -1,0 +1,18 @@
+@startuml FR_BEA_01
+title FR_BEA_01 - Add Test Case
+
+
+|#gold|eu| Academic office staff
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The academic office staff clicks the "New Test Case" button;
+
+|sys|
+:The system creates a new test case;
+:A successful snack-bar message will be displayed;
+
+stop
+
+@enduml

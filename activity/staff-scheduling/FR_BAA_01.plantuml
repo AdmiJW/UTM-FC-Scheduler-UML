@@ -1,0 +1,33 @@
+@startuml FR_BAA_01
+title FR_BAA_01 - Login
+
+
+|#gold|eu| Academic office staff
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+(A)
+
+:The academic office staff enters 
+the username and password;
+
+:The academic office staff clicks
+the "Sign in" button;
+
+|sys|
+:The system displays the loading indicator;
+
+if (sign in valid?) then (yes)
+    |sys|
+    :The system displays a sign-in successful snack-bar message.
+    :The system closes the sign-in modal window;
+else (no)
+    |sys|
+    :The system displays a failure snack-bar message;
+    (A)
+    detach
+endif
+stop
+
+@enduml

@@ -1,0 +1,22 @@
+@startuml FR_BBC_01
+title FR_BBC_01 - Clash Checking
+
+
+|#gold|eu| Academic office staff
+|#palegreen|sys| UTM FC Scheduler
+
+|sys|
+start
+
+:The system performs clash checking by running the clash
+checking algorithm on lecturer schedules and venue schedules;
+
+if (Clash detected?) then (yes)
+  :The system displays a clash report modal window showing the
+  details of detected clashes;
+else (no)
+  :The system displays a no-errors snack-bar message;
+endif
+stop
+
+@enduml

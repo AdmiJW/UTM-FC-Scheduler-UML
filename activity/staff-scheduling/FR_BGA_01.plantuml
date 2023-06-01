@@ -1,0 +1,18 @@
+@startuml FR_BGA_01
+title FR_BGA_01 - Add Section
+
+
+|#gold|eu| Academic office staff
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The academic office staff clicks the "New Section" button;
+
+|sys|
+:The system creates a new section;
+:A successful snack-bar message will be displayed;
+
+stop
+
+@enduml

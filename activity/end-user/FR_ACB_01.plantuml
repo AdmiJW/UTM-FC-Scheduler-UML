@@ -1,0 +1,50 @@
+@startuml FR_ACB_01
+title FR_ACB_01 - Add Course Notifier
+
+
+|#gold|eu| End users
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The user clicks the "New Notifier" button;
+
+|sys|
+:The system displays the add notifier model window;
+
+|eu|
+:The user selects the session semester;
+
+|sys|
+:The modal window displays the list of subjects of
+the selected session semester;
+
+|eu|
+:The user selects the subject;
+
+|sys|
+(A)
+:The modal window displays the list of sections of
+the selected subject.
+
+|eu|
+:The user clicks on the "Subscribe" button of the
+section to be notified;
+
+if (duplicate notifier?) then (yes)
+    |sys|
+    :The system displays a duplication error snack-bar message;
+    (A)
+    detach
+else (no)
+endif
+
+|sys|
+:The system adds a new course notifier based on 
+the user selection;
+
+:The system will display a successful snack-bar message;
+
+stop
+
+@enduml

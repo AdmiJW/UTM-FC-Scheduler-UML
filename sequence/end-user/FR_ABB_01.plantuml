@@ -1,0 +1,29 @@
+@startuml FR_ABB_01
+title FR_ABB_01 - Export Timetable
+skinparam maxMessageSize 125
+
+actor "End User" as eu
+boundary "Timetable Page" as fe
+' control "TimetableController" as ct
+' entity "Timetable" as en
+' database "Database" as db
+
+activate eu
+
+eu -> fe ++ : Click on the Export button on the timetable to export
+fe -> fe -- : showExportWindow()
+
+eu -> fe ++ : Select the export format
+eu -> fe : Click on the Export button
+
+fe -> fe : clashCheck()
+note right : FR_ABC_01
+
+fe -> fe : serialize(format, timetables)
+fe -> fe : saveFile(file)
+fe -> fe : showSuccessSnackbar(msg)
+return Exported Timetable
+
+deactivate eu
+
+@enduml

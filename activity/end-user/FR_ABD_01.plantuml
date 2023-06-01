@@ -1,0 +1,41 @@
+@startuml FR_ABD_01
+title FR_ABD_01 - Generate Timetable
+
+
+|#gold|eu| End users
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+
+:The user clicks on the "Generate" button of
+a timetable instance;
+
+|sys|
+:The system displays the generation preference
+configuration modal window;
+
+|eu|
+if (user wants to customize?) then (yes)
+    :(FR_ABD_02)
+    The user configures the timetable generation preferences;
+else (no)
+endif
+
+:The user clicks on the "Generate" button;
+
+|sys|
+:(FR_ABC_01)
+The system performs clash checking
+on the timetable instance;
+
+:The system executes the generation algorithm to
+generate a visual timetable;
+
+:The generated timetable is automatically downloaded;
+
+:The system displays a successful snack-bar message;
+
+stop
+
+@enduml

@@ -1,0 +1,35 @@
+@startuml FR_BBB_01
+title FR_BBB_01 - Export Session Semester
+
+
+|#gold|eu| Academic office staff
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The academic office staff clicks on the "Export" button on
+an existing session semester instance;
+
+|sys|
+:The system displays an export modal window;
+
+|eu|
+:The academic office staff selects the type of export;
+
+:The academic office staff clicks on the "Export" button;
+
+|sys|
+:(FR_BBC_01)
+The system performs clash checking on the session semester;
+
+:The system converts the session semester into the specified
+export format;
+
+:The converted file is automatically downloaded to the
+academic office staff's device;
+
+:The system displays a success snack-bar message;
+
+stop
+
+@enduml

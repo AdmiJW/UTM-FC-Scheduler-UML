@@ -1,0 +1,110 @@
+@startuml Academic Office Staff Module - Domain Model
+skinparam classAttributeIconSize 0
+hide empty members
+
+title Academic Office Staff Module - Domain Model
+
+
+
+class AcademicStaff {
+    - id
+
+    - name
+    - username
+    - password
+    - role
+    - email
+}
+
+class SessionSemester {
+    - id
+    - description
+    - status    
+
+    - session
+    - semester
+    - start_date
+    - end_date
+}
+
+
+class Venue {
+    - id
+    - description
+
+    - name_full
+    - name_short
+    - capacity
+    - type
+    - faculty_code
+    - venue_code
+    - department_code
+}
+
+
+class Lecturer {
+    - id
+    - description
+
+    - name
+    - email
+    - contact
+}
+
+
+class Subject {
+    - id
+    - description
+
+    - name
+    - code
+    - credit_hour
+}
+
+class Section {
+    - id
+
+    - section_no
+    - capacity
+    - program
+}
+
+
+class Class {
+    - id
+
+    - day_of_week
+    - time
+}
+
+
+class TestCase {
+    - id
+    - name
+    - description
+
+}
+
+
+class TestCaseSubject {
+    - id
+    
+    - allowed_sections
+}
+
+
+
+AcademicStaff -- SessionSemester : "creates"
+SessionSemester "1..1" *-- "0..*" Venue
+SessionSemester "1..1" *-- "0..*" Lecturer
+SessionSemester "1..1" *-- "0..*" Subject
+SessionSemester "1..1" *-- "0..*" TestCase
+Subject "1..1" *-- "0..*" Section
+Section "1..1" *-- "0..*" Class
+Section }o--o| Lecturer : "Teaches"
+Venue |o--o{ Class : "Holds"
+TestCase "1..1" *-- "0..*" TestCaseSubject
+TestCaseSubject }o--|| Subject : "Tests"
+
+
+@enduml

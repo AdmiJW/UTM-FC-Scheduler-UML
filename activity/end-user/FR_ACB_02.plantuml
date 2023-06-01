@@ -1,0 +1,31 @@
+@startuml FR_ACB_02
+title FR_ACB_02 - Remove Course Notifier
+
+
+|#gold|eu| End users
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+
+:The user clicks on the "Delete" button of the
+course notifier to be deleted;
+
+|sys|
+:The system displays a confirmation modal window;
+
+|eu|
+if (cancel?) then (yes)
+    :The user clicks on "Cancel" button;
+    |sys|
+    :The system closes the confirmation modal window;
+    stop
+else (no)
+    |sys|
+    :The system closes the confirmation modal window;
+    :The system displays a deletion successful snack-bar message;
+endif;
+
+stop
+
+@enduml

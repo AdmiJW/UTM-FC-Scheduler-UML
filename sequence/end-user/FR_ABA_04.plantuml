@@ -1,0 +1,25 @@
+@startuml FR_ABA_04
+title FR_ABA_04 - View Timetable
+skinparam maxMessageSize 125
+
+actor "End User" as eu
+boundary "Timetable Page" as fe
+control "TimetableController" as ct
+' entity "Timetable" as en
+' database "Database" as db
+
+activate eu
+
+eu -> ct ++ : Get Timetable Page
+ct -> fe ++-- : Timetable Page
+fe -> fe : getTimetables()
+fe -> fe -- : showTimetables(timetables)
+
+eu -> fe ++ : Enters the search and sort criteria
+fe -> fe : filterTimetables(criteria)
+fe -> fe : sortTimetables(criteria)
+fe -> fe -- : showTimetables(timetables)
+
+deactivate eu
+
+@enduml

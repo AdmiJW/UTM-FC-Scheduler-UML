@@ -1,0 +1,29 @@
+@startuml FR_BCB_01
+title FR_BCB_01 - Generate Venue Timetable
+
+
+|#gold|eu| Academic office staff
+|#palegreen|sys| UTM FC Scheduler
+
+|eu|
+start
+:The academic office staff clicks on the "Generate" button on
+an existing venue instance;
+
+|sys|
+:The system displays the loading indicator;
+
+:(FR_BBC_01)
+The system performs clash checking on the venue;
+
+:The system runs the generation algorithm to generate
+a visual timetable for the venue;
+
+:The system displays the generated timetable;
+
+:The system displays a successful snack-bar message;
+
+
+stop
+
+@enduml

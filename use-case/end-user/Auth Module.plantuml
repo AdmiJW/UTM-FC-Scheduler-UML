@@ -1,0 +1,27 @@
+@startuml End-User Module - Auth Module
+
+title End-User Module - Auth Module
+left to right direction
+
+
+' Actors
+"End-user" as EU
+Student --|> EU
+Lecturer --|> EU
+
+
+' Use Cases
+rectangle "UTM FC Scheduler - End User Module" {
+
+package "A - Auth Module" {
+    usecase (FR_AAA_01 \n Login) as FR_AAA_01
+    usecase (FR_AAA_02 \n Logout) as FR_AAA_02
+}
+
+}
+
+' Associations
+EU -- FR_AAA_01
+EU -- FR_AAA_02
+
+@enduml
