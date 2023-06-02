@@ -1,0 +1,99 @@
+@startuml Entity Relationship Diagram
+skinparam classAttributeIconSize 0
+hide empty members
+
+title Entity Relationship Diagram : PostgreSQL Database
+
+
+
+entity AcademicStaff {
+    id : int [PK]
+    name : text
+    username : text
+    password : text 
+    role : text
+    email : text
+}
+
+
+entity SessionSemester {
+    id : int [PK]
+    description : text
+    status : text
+    session : text
+    semester : text
+    start_date : date
+    end_date : date
+}
+
+
+entity Venue {
+    id : int [PK]
+    description : text
+    name_full : text
+    name_short : text
+    capacity : int
+    type : text
+    faculty_code : text
+    venue_code : text
+    department_code : text
+
+    session_semester_id : int [FK]
+}
+
+
+entity Lecturer {
+    id : int [PK]
+    description : text
+    name : text
+    email : text
+    contact : text
+
+    session_semester_id : int [FK]
+}
+
+
+entity Subject {
+    id : int [PK]
+    description : text
+    name : text
+    code : text
+    credit_hour : int
+
+    session_semester_id : int [FK]
+}
+
+
+entity Section {
+    id : int [PK]
+    section_no : text
+    capacity : int
+    program : text
+
+    subject_id : int [FK]
+    lecturer_id : int [FK]
+}
+
+
+entity Class {
+    id : int [PK]
+    day_of_week : int
+    time : int
+
+    section_id : int [FK]
+    venue_id : int [FK]
+}
+
+
+
+AcademicStaff ||-o{ SessionSemester : "creates"
+SessionSemester ||--o{ Venue : "contains"
+SessionSemester ||--o{ Lecturer : "contains"
+SessionSemester ||--o{ Subject : "offers"
+Subject ||--o{ Section : "offers"
+Section ||--o{ Class : "hosts"
+Section }o--o| Lecturer : "teaches"
+Venue |o--o{ Class : "hosts"
+
+
+@enduml
