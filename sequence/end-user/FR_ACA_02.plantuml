@@ -1,0 +1,34 @@
+@startuml FR_ACA_02
+title FR_ACA_02 - Update Course
+skinparam maxMessageSize 125
+
+actor "Lecturer" as eu
+boundary "Courses Page" as fe
+boundary "Course Page" as fe2
+control "CourseController" as ct
+' entity "Timetable" as en
+' database "Database" as db
+
+activate eu
+
+eu -> fe ++ : Click on the course to edit
+fe -> ct ++-- : getCoursePage()
+ct --> fe2 ++-- : Course Page
+deactivate fe2
+
+eu -> fe2 ++ : Edits the course details
+eu -> fe2 : Clicks on the Save button
+
+
+alt Valid input
+    fe2 -> fe2 : updateCourse(updatedCourse)
+    fe2 -> fe2 : showSuccessSnackbar(msg)
+else Invalid input
+    fe2 -> fe2 : showFailureSnackbar(msg)
+end
+
+
+
+deactivate eu
+
+@enduml

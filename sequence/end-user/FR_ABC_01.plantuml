@@ -1,0 +1,22 @@
+@startuml FR_ABC_01
+title FR_ABC_01 - Clash Checking
+skinparam maxMessageSize 125
+
+' actor "End User" as eu
+boundary "Timetable Page" as fe
+' control "TimetableController" as ct
+' entity "Timetable" as en
+' database "Database" as db
+
+note across : This is a front-end only operation
+
+fe -> fe ++ : clashCheck(timetable)
+
+alt No clashes
+    fe -> fe : showSuccessSnackbar(msg)
+else Detected clashes
+    fe -> fe : showClashDetails(clashes)
+end
+
+
+@enduml

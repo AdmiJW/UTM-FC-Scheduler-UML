@@ -1,0 +1,29 @@
+@startuml FR_BEA_04
+title FR_BEA_04 - View Test Case
+skinparam maxMessageSize 125
+
+actor "Academic Office Staff" as eu
+boundary "Test Cases Page" as fe
+control "TestCaseController" as ct
+database "Database" as db
+
+activate eu
+
+eu -> ct ++ : getTestCasesPage()
+ct --> fe -- : Test Cases Page
+
+activate fe
+fe -> ct ++ : getTestCases()
+ct -> db ++ : getTestCases()
+db --> ct -- : Test Cases
+ct --> fe -- : Test Cases
+fe -> fe -- : showTestCases(testCases)
+
+eu -> fe ++ : Enters the search and sort criteria
+fe -> fe : filterTestCases(criteria)
+fe -> fe : sortTestCases(criteria)
+fe -> fe -- : showTestCases(testCases)
+
+deactivate eu
+
+@enduml

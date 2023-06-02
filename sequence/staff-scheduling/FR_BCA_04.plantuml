@@ -1,0 +1,29 @@
+@startuml FR_BCA_04
+title FR_BCA_04 - View Venue
+skinparam maxMessageSize 125
+
+actor "Academic Office Staff" as eu
+boundary "Venues Page" as fe
+control "VenueController" as ct
+database "Database" as db
+
+activate eu
+
+eu -> ct ++ : getVenuesPage()
+ct --> fe -- : VenuesPage
+
+activate fe
+fe -> ct ++ : getVenues()
+ct -> db ++ : getVenues()
+db --> ct -- : Venues
+ct --> fe -- : Venues
+fe -> fe -- : showVenues(venues)
+
+eu -> fe ++ : Enters the search and sort criteria
+fe -> fe : filterVenues(criteria)
+fe -> fe : sortVenues(criteria)
+fe -> fe -- : showVenues(venues)
+
+deactivate eu
+
+@enduml

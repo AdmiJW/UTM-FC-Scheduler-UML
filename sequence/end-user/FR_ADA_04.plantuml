@@ -1,0 +1,20 @@
+@startuml FR_ADA_04
+title FR_ADA_04 - View Class
+skinparam maxMessageSize 125
+
+actor "End User" as eu
+boundary "Course Page" as fe
+control "CourseController" as ct
+' entity "Timetable" as en
+' database "Database" as db
+
+activate eu
+
+eu -> ct ++ : Get Course Page
+ct -> fe ++-- : Course Page
+fe -> fe : getClasses(courseId)
+fe -> fe -- : showClasses(courses)
+
+deactivate eu
+
+@enduml

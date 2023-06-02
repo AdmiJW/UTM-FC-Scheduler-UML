@@ -1,0 +1,26 @@
+@startuml FR_BEB_01
+title FR_BEB_01 - Execute Test Case
+skinparam maxMessageSize 125
+
+actor "Academic Office Staff" as eu
+boundary "Test Case Page" as fe
+control "TestCaseController" as ct
+database "Database" as db
+
+activate eu
+
+eu -> fe ++ : Clicks on the Execute button of test case
+fe -> fe : showLoadingIndicator()
+
+fe -> ct ++ : getTestCaseData(testCaseId)
+ct -> db ++ : getTestCaseData(testCaseId)
+db --> ct -- : TestCaseData
+ct --> fe -- : TestCaseData
+
+fe -> fe : searchPossibilities(testCaseData)
+fe -> fe : hideLoadingIndicator()
+fe -> fe : showPossibilities(possibilities)
+
+deactivate eu
+
+@enduml

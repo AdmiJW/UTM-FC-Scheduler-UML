@@ -1,0 +1,30 @@
+@startuml FR_BCB_01
+title FR_BCB_01 - Generate Venue Timetable
+skinparam maxMessageSize 125
+
+actor "Academic Office Staff" as eu
+boundary "Venue Page" as fe
+control "VenueController" as ct
+database "Database" as db
+
+activate eu
+
+eu -> fe ++ : Clicks on the Generate button
+fe -> fe : showLoadingIndicator()
+
+fe -> ct ++ : generateVenueTimetable(venueId)
+ct -> db ++ : getVenueTimetableData(venueId)
+db --> ct -- : VenueTimetableData
+ct -> ct : clashCheck(venueTimetableData)
+note right : FR_BCB_01
+
+ct --> fe -- : VenueTimetableData
+
+fe -> fe : generateVisualTimetable(venueTimetableData)
+fe -> fe : showVenueTimetable(venueTimetable)
+fe -> fe : hideLoadingIndicator()
+fe -> fe : showSuccessSnackbar(msg)
+
+deactivate eu
+
+@enduml

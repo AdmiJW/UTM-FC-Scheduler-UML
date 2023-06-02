@@ -1,0 +1,25 @@
+@startuml FR_ACA_04
+title FR_ACA_04 - View Course
+skinparam maxMessageSize 125
+
+actor "End User" as eu
+boundary "Courses Page" as fe
+control "CourseController" as ct
+' entity "Timetable" as en
+' database "Database" as db
+
+activate eu
+
+eu -> ct ++ : Get Courses Page
+ct -> fe ++-- : Courses Page
+fe -> fe : getCourses(timetableId)
+fe -> fe -- : showCourses(courses)
+
+eu -> fe ++ : Enters the search and sort criteria
+fe -> fe : filterCourses(criteria)
+fe -> fe : sortCourses(criteria)
+fe -> fe -- : showCourses(courses)
+
+deactivate eu
+
+@enduml

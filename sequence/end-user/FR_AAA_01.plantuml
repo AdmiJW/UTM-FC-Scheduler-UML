@@ -4,7 +4,7 @@ skinparam maxMessageSize 125
 
 
 actor "End User" as eu
-boundary MainPage as fe
+boundary "(Any Page)" as fe
 control AuthController as ct
 ' entity Entity as en
 database Database as db
@@ -33,11 +33,12 @@ fe -> ct ++ : login(SignInRequestDTO)
 ct -> db ++ : findUser(SignInRequestDTO)
 db --> ct -- : User?
 ct --> fe -- : SignInResponseDTO
-fe -> fe : onLoginSuccess(SignInResponseDTO)
-fe -> fe : showSuccessSnackbar()
-fe -> fe : hideLoginModal()
 
-alt Invalid sign in
+alt Valid sign in
+    fe -> fe : onLoginSuccess(SignInResponseDTO)
+    fe -> fe : showSuccessSnackbar()
+    fe -> fe : hideLoginModal()
+else Invalid sign in
     fe -> fe : showErrorSnackbar()
 end
 

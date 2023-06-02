@@ -1,0 +1,33 @@
+@startuml FR_BBA_03
+title FR_BBA_03 - Delete Session Semester
+skinparam maxMessageSize 125
+
+actor "Academic Office Staff" as eu
+boundary "Session Semesters Page" as fe
+control "SessionSemesterController" as ct
+database "Database" as db
+
+activate eu
+
+eu -> fe ++ : Clicks on Delete button of session semester
+fe -> fe : showConfirmationDialog(msg)
+eu -> fe : Click on the Confirm button
+
+fe -> ct ++ : deleteSessionSemester(id)
+ct -> db ++ : deleteSessionSemester(id)
+db --> ct -- : SessionSemester deleted
+ct --> fe -- : SessionSemester deleted
+fe -> fe : onDeleted()
+fe -> fe : closeConfirmationDialog()
+fe -> fe -- : showSuccessSnackbar(msg)
+
+alt Cancel
+    eu -> fe ++ : Click on the Cancel button
+    fe -> fe : hideConfirmationDialog()
+end
+
+
+
+deactivate eu
+
+@enduml

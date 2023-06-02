@@ -1,0 +1,32 @@
+@startuml FR_BAA_02
+title FR_BAA_02 - Logout
+skinparam maxMessageSize 125
+
+actor "Academic Office Staff" as eu
+boundary "(Any Page)" as fe
+control AuthController as ct
+' entity Entity as en
+database Database as db
+
+activate eu
+
+eu -> fe ++ : Click Sign out button
+fe -> fe : showLoadingIndicator()
+
+fe -> ct ++ : logout()
+ct -> db ++ : deleteSession()
+return result
+
+alt Valid sign out
+    ct -> fe : onLogoutSuccess()
+    fe -> fe : hideLoadingIndicator()
+    fe -> fe : showSuccessSnackbar(msg)
+    fe -> fe : redirectToMainPage()
+else Invalid sign out
+    ct -> fe : onLogoutFailure()
+    fe -> fe : showErrorSnackbar(msg)
+end
+
+deactivate eu
+
+@enduml

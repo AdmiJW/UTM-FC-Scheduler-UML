@@ -1,0 +1,21 @@
+@startuml FR_ACA_01
+title FR_ACA_01 - Create Course
+skinparam maxMessageSize 125
+
+actor "End User" as eu
+boundary "Courses Page" as fe
+' control "TimetableController" as ct
+' entity "Timetable" as en
+' database "Database" as db
+
+activate eu
+
+note across : This is a front-end only operation
+
+eu -> fe ++ : Click New Course button
+fe -> fe : createNewCourse()
+fe -> fe : showSuccessSnackbar(msg)
+
+deactivate eu
+
+@enduml

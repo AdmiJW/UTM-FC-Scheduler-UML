@@ -1,0 +1,35 @@
+@startuml FR_ABD_01
+title FR_ABD_01 - Generate Timetable
+skinparam maxMessageSize 125
+
+actor "End User" as eu
+boundary "Timetable Page" as fe
+' control "TimetableController" as ct
+' entity "Timetable" as en
+' database "Database" as db
+
+activate eu
+
+note across : This is a front-end only operation
+
+
+eu -> fe ++ : Click on the Generate button
+fe -> fe -- : showGenerationPreferenceConfigurationWindow()
+
+eu -> fe ++ : Configure generation preferences
+note right : FR_ABD_02
+eu -> fe : Click on the Generate button
+
+fe -> fe : clashCheck()
+note right : FR_ABC_01
+
+fe -> fe : generateVisualTimetable(timetable)
+fe -> fe : displayVisualTimetable(timetable)
+fe -> fe : showSuccessSnackbar(msg)
+fe -> fe : downloadTimetable(timetable)
+return Visual Timetable
+
+
+deactivate eu
+
+@enduml

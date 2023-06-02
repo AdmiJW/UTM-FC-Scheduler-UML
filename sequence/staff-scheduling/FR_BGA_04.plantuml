@@ -1,0 +1,29 @@
+@startuml FR_BGA_04
+title FR_BGA_04 - View Section
+skinparam maxMessageSize 125
+
+actor "Academic Office Staff" as eu
+boundary "Sections Page" as fe
+control "SectionController" as ct
+database "Database" as db
+
+activate eu
+
+eu -> ct ++ : getSectionsPage()
+ct --> fe -- : Sections Page
+
+activate fe
+fe -> ct ++ : getSections()
+ct -> db ++ : getSections()
+db --> ct -- : Sections
+ct --> fe -- : Sections
+fe -> fe -- : showSections(sections)
+
+eu -> fe ++ : Enters the search and sort criteria
+fe -> fe : filterSections(criteria)
+fe -> fe : sortSections(criteria)
+fe -> fe -- : showSections(sections)
+
+deactivate eu
+
+@enduml

@@ -1,0 +1,31 @@
+@startuml FR_ACA_03
+title FR_ACA_03 - Delete Course
+skinparam maxMessageSize 125
+
+actor "End User" as eu
+boundary "Courses Page" as fe
+' control "TimetableController" as ct
+' entity "Timetable" as en
+' database "Database" as db
+
+note across : This is a front-end only operation
+
+
+activate eu
+
+eu -> fe ++ : Click on the Delete button on the course to delete
+fe -> fe : showConfirmationDialog(msg)
+eu -> fe : Click on the Confirm button
+
+fe -> fe : deleteCourse(id)
+fe -> fe : hideConfirmationDialog()
+fe -> fe -- : showSuccessSnackbar(msg)
+
+alt Cancel
+    eu -> fe ++ : Click on the Cancel button
+    fe -> fe : hideConfirmationDialog()
+end
+
+deactivate eu
+
+@enduml

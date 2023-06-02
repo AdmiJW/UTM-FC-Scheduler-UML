@@ -1,0 +1,40 @@
+@startuml FR_ACC_02
+title FR_ACC_02 - Retrieve Registered Courses - Lecturer
+skinparam maxMessageSize 125
+
+actor "Lecturer" as eu
+boundary "Courses Page" as fe
+control "CourseController" as ct
+' entity "Timetable" as en
+database "Database" as db
+
+activate eu
+
+eu -> fe ++ : Click on Retrieve Courses button
+fe -> ct ++ : getSessionSemesters()
+ct -> db ++ : getSessionSemesters()
+db --> ct -- : Session Semesters
+ct --> fe -- : Session Semesters
+fe -> fe -- : displayRetrieveCourseLecturerWindow()
+
+eu -> fe ++ : Select a session semester
+fe -> ct ++ : getCoursesOfLecturer(staffID, sessionSemester)
+ct -> db ++ : getCoursesOfLecturer(staffID, sessionSemester)
+db --> ct -- : Courses
+ct --> fe -- : Courses
+fe -> fe -- : showConfirmationWindow(courses)
+
+
+alt Confirm
+    eu -> fe ++ : Click on Confirm button
+    fe -> fe : addCourses(courses)
+    fe -> fe : showSuccessSnackbar(msg)
+else Cancel
+    eu -> fe ++ : Click on Cancel button
+    fe -> fe -- : closeConfirmationWindow()
+end
+
+
+deactivate eu
+
+@enduml

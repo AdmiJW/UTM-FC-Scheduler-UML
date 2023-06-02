@@ -1,0 +1,22 @@
+@startuml FR_BCA_01
+title FR_BCA_01 - Add Venue
+skinparam maxMessageSize 125
+
+actor "Academic Office Staff" as eu
+boundary "Venues Page" as fe
+control "VenueController" as ct
+
+database "Database" as db
+
+activate eu
+
+eu -> fe ++ : Clicks on New Venue button
+fe -> ct ++ : createNewVenue()
+ct -> db ++ : save(venue)
+db --> ct -- : venue
+ct --> fe -- : venue
+fe -> fe : showSuccessSnackbar(msg)
+
+deactivate eu
+
+@enduml

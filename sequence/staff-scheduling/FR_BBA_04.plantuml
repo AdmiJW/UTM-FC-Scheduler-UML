@@ -1,0 +1,29 @@
+@startuml FR_BBA_04
+title FR_BBA_04 - View Session Semester
+skinparam maxMessageSize 125
+
+actor "Academic Office Staff" as eu
+boundary "Session Semesters Page" as fe
+control "SessionSemesterController" as ct
+database "Database" as db
+
+activate eu
+
+eu -> ct ++ : getSessionSemesterPage()
+ct --> fe -- : SessionSemesterPage
+
+activate fe
+fe -> ct ++ : getSessionSemesters()
+ct -> db ++ : getSessionSemesters()
+db --> ct -- : SessionSemesters
+ct --> fe -- : SessionSemesters
+fe -> fe -- : showSessionSemesters(sessionSemesters)
+
+eu -> fe ++ : Enters the search and sort criteria
+fe -> fe : filterSessionSemesters(criteria)
+fe -> fe : sortSessionSemesters(criteria)
+fe -> fe -- : showSessionSemesters(sessionSemesters)
+
+deactivate eu
+
+@enduml

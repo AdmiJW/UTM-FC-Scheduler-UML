@@ -1,0 +1,28 @@
+@startuml FR_ABD_02
+title FR_ABD_02 - Configure Generation Preferences
+skinparam maxMessageSize 125
+
+actor "End User" as eu
+boundary "Timetable Page" as fe
+' control "TimetableController" as ct
+' entity "Timetable" as en
+' database "Database" as db
+
+activate eu
+
+note across : This is a front-end only operation
+
+
+eu -> fe ++ : Configure timetable generation preferences
+eu -> fe : Click on the Confirm button
+
+alt Valid input
+    fe -> fe : saveConfigurations(configurations)
+    fe -> fe : showSuccessSnackbar(msg)
+else Invalid input
+    fe -> fe : showFailureSnackbar(msg)
+end
+
+deactivate eu
+
+@enduml

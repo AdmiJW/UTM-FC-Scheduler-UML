@@ -1,0 +1,45 @@
+@startuml FR_BFA_02
+title FR_BFA_02 - Edit Course
+skinparam maxMessageSize 125
+
+actor "Academic Office Staff" as eu
+boundary "Courses Page" as fe
+boundary "Course Page" as fe2
+control "CourseController" as ct
+database "Database" as db
+
+activate eu
+
+eu -> fe ++ : Clicks on the course to edit
+fe -> ct ++ : getCoursePage()
+ct --> fe2 ++-- : Course Page
+deactivate fe
+deactivate fe2
+
+fe2 -> ct ++ : getCourse(courseId)
+activate fe2
+ct -> db ++ : getCourse(courseId)
+db --> ct -- : course
+ct --> fe2 -- : course
+fe2 -> fe2 : showCourse(course)
+deactivate fe2
+
+eu -> fe2 ++ : Edit the course
+eu -> fe2 : Clicks on the Save button
+fe2 -> ct ++ : updateCourse(course)
+
+alt Valid Input
+    ct -> db ++ : save(course)
+    return course
+    ct --> fe2 -- : course
+    fe2 -> fe2 : updateCourse(course)
+    fe2 -> fe2 : showSuccessSnackbar(msg)
+else Invalid Input
+    activate ct
+    ct -> fe2 -- : showErrors(errors)
+    fe2 -> fe2 : showFailureSnackbar(msg)
+end
+
+deactivate eu
+
+@enduml

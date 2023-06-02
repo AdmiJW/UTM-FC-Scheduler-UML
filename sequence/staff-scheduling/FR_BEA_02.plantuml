@@ -1,0 +1,45 @@
+@startuml FR_BEA_02
+title FR_BEA_02 - Edit Test Case
+skinparam maxMessageSize 125
+
+actor "Academic Office Staff" as eu
+boundary "Test Cases Page" as fe
+boundary "Test Case Page" as fe2
+control "TestCaseController" as ct
+database "Database" as db
+
+activate eu
+
+eu -> fe ++ : Clicks on the test case to edit
+fe -> ct ++ : getTestCasePage()
+ct --> fe2 ++-- : Test Case Page
+deactivate fe
+deactivate fe2
+
+fe2 -> ct ++ : getTestCase(testCaseId)
+activate fe2
+ct -> db ++ : getTestCase(testCaseId)
+db --> ct -- : testCase
+ct --> fe2 -- : testCase
+fe2 -> fe2 : showTestCase(testCase)
+deactivate fe2
+
+eu -> fe2 ++ : Edit the test case
+eu -> fe2 : Clicks on the Save button
+fe2 -> ct ++ : updateTestCase(testCase)
+
+alt Valid Input
+    ct -> db ++ : save(testCase)
+    return testCase
+    ct --> fe2 -- : testCase
+    fe2 -> fe2 : updateTestCase(testCase)
+    fe2 -> fe2 : showSuccessSnackbar(msg)
+else Invalid Input
+    activate ct
+    ct -> fe2 -- : showErrors(errors)
+    fe2 -> fe2 : showFailureSnackbar(msg)
+end
+
+deactivate eu
+
+@enduml

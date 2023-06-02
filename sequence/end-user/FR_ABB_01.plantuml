@@ -10,6 +10,9 @@ boundary "Timetable Page" as fe
 
 activate eu
 
+note across : This is a front-end only operation
+
+
 eu -> fe ++ : Click on the Export button on the timetable to export
 fe -> fe -- : showExportWindow()
 

@@ -1,0 +1,24 @@
+@startuml FR_BHA_04
+title FR_BHA_04 - View Class
+skinparam maxMessageSize 125
+
+actor "Academic Office Staff" as eu
+boundary "Section Page" as fe
+control "ClassController" as ct
+database "Database" as db
+
+activate eu
+
+eu -> ct ++ : getSectionPage()
+ct --> fe -- : Section Page
+
+activate fe
+fe -> ct ++ : getSection(sectionId)
+ct -> db ++ : getSection(sectionId)
+db --> ct -- : Section and Classes
+ct --> fe -- : Section and Classes
+fe -> fe -- : showSectionAndClass(section)
+
+deactivate eu
+
+@enduml

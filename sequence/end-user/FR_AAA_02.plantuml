@@ -3,7 +3,7 @@ title FR_AAA_02 - Logout
 skinparam maxMessageSize 125
 
 actor "End User" as eu
-boundary MainPage as fe
+boundary "(Any Page)" as fe
 control AuthController as ct
 ' entity Entity as en
 database Database as db
@@ -16,12 +16,13 @@ fe -> fe : showLoadingIndicator()
 fe -> ct ++ : logout()
 ct -> db ++ : deleteSession()
 return result
-ct -> fe : onLogoutSuccess()
-fe -> fe : hideLoadingIndicator()
-fe -> fe : showSuccessSnackbar(msg)
-fe -> fe : redirectToMainPage()
 
-alt Invalid sign out
+alt Valid sign out
+    ct -> fe : onLogoutSuccess()
+    fe -> fe : hideLoadingIndicator()
+    fe -> fe : showSuccessSnackbar(msg)
+    fe -> fe : redirectToMainPage()
+else Invalid sign out
     ct -> fe : onLogoutFailure()
     fe -> fe : showErrorSnackbar(msg)
 end

@@ -1,0 +1,32 @@
+@startuml FR_BBB_01
+title FR_BBB_01 - Export Session Semester
+skinparam maxMessageSize 125
+
+actor "Academic Office Staff" as eu
+boundary "Session Semester Page" as fe
+control "SessionSemesterController" as ct
+database "Database" as db
+
+activate eu
+
+eu -> fe ++ : Clicks on the Export button
+fe -> fe -- : displayExportWindow()
+
+eu -> fe ++ : Select the export format
+eu -> fe : Clicks on the Export button
+
+fe -> ct ++ : exportSessionSemester(sessionSemester, format)
+ct -> db ++ : getSessionSemesterExportData(sessionSemester)
+db --> ct -- : SessionSemesterExportData
+ct -> ct : clashCheck(sessionSemesterExportData)
+note right : FR_BBC_01
+
+ct -> ct : convertToExportFormat(sessionSemesterExportData, format)
+ct --> fe -- : SessionSemesterExportData
+fe -> fe : showSuccessSnackbar(msg)
+fe -> fe : save(file)
+return Exported Session Semester
+
+deactivate eu
+
+@enduml

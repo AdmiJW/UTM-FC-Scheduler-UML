@@ -1,0 +1,43 @@
+@startuml FR_BAA_01
+title FR_BAA_01 - Login
+skinparam maxMessageSize 125
+
+
+actor "Academic Office Staff" as eu
+boundary "(Login Page)" as fe
+control AuthController as ct
+' entity Entity as en
+database Database as db
+
+activate eu
+
+eu -> fe ++ : Click Login button
+fe -> fe -- : showLoginModal()
+
+eu -> fe ++ : Staff ID, password
+deactivate fe
+
+alt User cancels login
+    eu -> fe ++ : Click Cancel button
+    fe -> fe -- : hideLoginModal()
+end
+
+
+eu -> fe ++ : Click Submit button
+fe -> fe : showLoadingIndicator()
+fe -> ct ++ : login(SignInRequestDTO)
+ct -> db ++ : findUser(SignInRequestDTO)
+db --> ct -- : User?
+ct --> fe -- : SignInResponseDTO
+
+alt Valid sign in
+    fe -> fe : onLoginSuccess(SignInResponseDTO)
+    fe -> fe : showSuccessSnackbar()
+    fe -> fe : hideLoginModal()
+else Invalid sign in
+    fe -> fe : showErrorSnackbar()
+end
+
+deactivate eu
+
+@enduml

@@ -1,0 +1,43 @@
+@startuml FR_ACB_01
+title FR_ACB_01 - Add Course Notifier
+skinparam maxMessageSize 125
+
+actor "End User" as eu
+boundary "Course Notifiers Page" as fe
+control "CourseNotifierController" as ct
+' entity "Timetable" as en
+database "Database" as db
+
+activate eu
+
+
+eu -> fe ++ : Click New Notifier button
+fe -> fe -- : displayNewNotifierWindow()
+
+eu -> fe ++ : Select session semester
+fe -> ct ++ : getSubjects(sessionSemester)
+ct -> db ++ : getSubjects(sessionSemester)
+return Subjects
+return Subjects
+deactivate fe
+
+eu -> fe ++ : Select subject
+fe -> ct ++ : getSections(subject)
+ct -> db ++ : getSections(subject)
+return Sections
+return Sections
+deactivate fe
+
+eu -> fe ++ : Click on Subscribe button of the section to be notified
+
+alt Valid notifier
+    fe -> fe : addNotifier(subject, section)
+    fe -> fe : showSuccessSnackbar(msg)
+else Duplicate notifier
+    fe -> fe -- : showFailureSnackbar(msg)
+end
+
+
+deactivate eu
+
+@enduml

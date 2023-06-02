@@ -1,0 +1,38 @@
+@startuml FR_ABB_02
+title FR_ABB_02 - Import Timetable
+skinparam maxMessageSize 125
+
+actor "End User" as eu
+boundary "Timetables Page" as fe
+' control "TimetableController" as ct
+' entity "Timetable" as en
+' database "Database" as db
+
+activate eu
+
+note across : This is a front-end only operation
+
+
+eu -> fe ++ : Click on the Import Timetable button
+fe -> fe -- : showImportWindow()
+
+eu -> fe ++ : Uploads the file to import
+eu -> fe : Click on the Import button
+
+fe -> fe : deserialize(file)
+fe -> fe : clashCheck()
+note right : FR_ABC_01
+
+
+alt Valid file input
+    fe -> fe : createTimetable(data)
+    fe -> fe : showSuccessSnackbar(msg)
+else Invalid file input
+    fe -> fe : showFailureSnackbar(msg)
+end
+
+
+
+deactivate eu
+
+@enduml

@@ -1,0 +1,36 @@
+@startuml FR_ACB_03
+title FR_ACB_03 - View Course Notifier
+skinparam maxMessageSize 125
+
+actor "End User" as eu
+boundary "Course Notifiers Page" as fe
+control "CourseNotifierController" as ct
+' entity "Timetable" as en
+database "Database" as db
+
+activate eu
+
+eu -> ct ++ : Get Course Notifiers Page
+ct -> fe ++-- : Course Notifiers Page
+fe -> fe : getCourseNotifiers()
+fe -> ct ++ : compareCourseNotifiers(courseNotifiers)
+ct -> db ++ : getSections(sectionIds)
+db --> ct -- : Sections
+ct --> fe -- : courseNotifiersReportDTO
+fe -> fe : showCourseNotifiers(courseNotifiers)
+
+alt Inconsistencies detected
+    fe -> fe : showInconsistenciesWindow(inconsistencies)
+    fe -> fe : updateCourseNotifiers(courseNotifiers)
+    deactivate fe
+end
+
+
+eu -> fe ++ : Enters the search and sort criteria
+fe -> fe : filterCourseNotifiers(criteria)
+fe -> fe : sortCourseNotifiers(criteria)
+fe -> fe -- : showCourseNotifiers(courseNotifiers)
+
+deactivate eu
+
+@enduml

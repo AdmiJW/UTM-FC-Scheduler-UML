@@ -1,0 +1,25 @@
+@startuml FR_ADA_02
+title FR_ADA_02 - Update Class
+skinparam maxMessageSize 125
+
+actor "Lecturer" as eu
+boundary "Course Page" as fe
+
+activate eu
+
+eu -> fe ++ : Edits the class information
+eu -> fe : Clicks on the Save button
+
+
+alt Valid input
+    fe -> fe : updateClass(updatedClass)
+    fe -> fe : showSuccessSnackbar(msg)
+else Invalid input
+    fe -> fe : showFailureSnackbar(msg)
+end
+
+
+
+deactivate eu
+
+@enduml

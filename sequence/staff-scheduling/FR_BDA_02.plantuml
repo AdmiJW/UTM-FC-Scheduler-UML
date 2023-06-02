@@ -1,0 +1,45 @@
+@startuml FR_BDA_02
+title FR_BDA_02 - Edit Lecturer
+skinparam maxMessageSize 125
+
+actor "Academic Office Staff" as eu
+boundary "Lecturers Page" as fe
+boundary "Lecturer Page" as fe2
+control "LecturerController" as ct
+database "Database" as db
+
+activate eu
+
+eu -> fe ++ : Clicks on the lecturer to edit
+fe -> ct ++ : getLecturerPage()
+ct --> fe2 ++-- : Lecturer Page
+deactivate fe
+deactivate fe2
+
+fe2 -> ct ++ : getLecturer(lecturerId)
+activate fe2
+ct -> db ++ : getLecturer(lecturerId)
+db --> ct -- : lecturer
+ct --> fe2 -- : lecturer
+fe2 -> fe2 : showLecturer(lecturer)
+deactivate fe2
+
+eu -> fe2 ++ : Edit the lecturer
+eu -> fe2 : Clicks on the Save button
+fe2 -> ct ++ : editLecturer(lecturer)
+
+alt Valid Input
+    ct -> db ++ : save(lecturer)
+    return lecturer
+    ct --> fe2 -- : lecturer
+    fe2 -> fe2 : updateLecturer(lecturer)
+    fe2 -> fe2 : showSuccessSnackbar(msg)
+else Invalid Input
+    activate ct
+    ct -> fe2 -- : showErrors(errors)
+    fe2 -> fe2 : showFailureSnackbar(msg)
+end
+
+deactivate eu
+
+@enduml

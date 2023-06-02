@@ -1,0 +1,33 @@
+@startuml FR_BHA_03
+title FR_BHA_03 - Delete Class
+skinparam maxMessageSize 125
+
+actor "Academic Office Staff" as eu
+boundary "Section Page" as fe
+control "ClassController" as ct
+database "Database" as db
+
+activate eu
+
+eu -> fe ++ : Clicks on Delete button of class
+fe -> fe : showConfirmationDialog(msg)
+eu -> fe : Click on the Confirm button
+
+fe -> ct ++ : deleteClass(id)
+ct -> db ++ : deleteClass(id)
+db --> ct -- : Class deleted
+ct --> fe -- : Class deleted
+fe -> fe : onDeleted()
+fe -> fe : closeConfirmationDialog()
+fe -> fe -- : showSuccessSnackbar(msg)
+
+alt Cancel
+    eu -> fe ++ : Click on the Cancel button
+    fe -> fe : hideConfirmationDialog()
+end
+
+
+
+deactivate eu
+
+@enduml

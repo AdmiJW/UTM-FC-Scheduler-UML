@@ -1,0 +1,22 @@
+@startuml FR_BBC_01
+title FR_BBC_01 - Clash Checking
+skinparam maxMessageSize 125
+
+boundary "Page" as fe
+control "SessionSemesterController" as ct
+
+
+ct -> ct ++ : checkLecturerSchedule(lecturers)
+ct -> ct : checkVenueSchedule(venues)
+
+alt No Clashes
+    ct -> fe ++ : showClashCheckSuccess()
+    fe -> fe : showSuccessSnackbar()
+else Clashes
+    ct -> ct : createClashReport()
+    ct -> fe : showClashReport(report)
+    fe -> fe : showFailureSnackbar()
+    fe -> fe : showClashReportDialog(report)
+end
+
+@enduml

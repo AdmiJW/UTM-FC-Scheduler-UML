@@ -1,0 +1,29 @@
+@startuml FR_BDA_04
+title FR_BDA_04 - View Lecturer
+skinparam maxMessageSize 125
+
+actor "Academic Office Staff" as eu
+boundary "Lecturers Page" as fe
+control "LecturerController" as ct
+database "Database" as db
+
+activate eu
+
+eu -> ct ++ : getLecturersPage()
+ct --> fe -- : Lecturers Page
+
+activate fe
+fe -> ct ++ : getLecturers()
+ct -> db ++ : getLecturers()
+db --> ct -- : Lecturers
+ct --> fe -- : Lecturers
+fe -> fe -- : showLecturers(lecturers)
+
+eu -> fe ++ : Enters the search and sort criteria
+fe -> fe : filterLecturers(criteria)
+fe -> fe : sortLecturers(criteria)
+fe -> fe -- : showLecturers(lecturers)
+
+deactivate eu
+
+@enduml

@@ -1,0 +1,45 @@
+@startuml FR_BBA_02
+title FR_BBA_02 - Edit Session Semester
+skinparam maxMessageSize 125
+
+actor "Academic Office Staff" as eu
+boundary "Session Semesters Page" as fe
+boundary "Session Semester Page" as fe2
+control "SessionSemesterController" as ct
+database "Database" as db
+
+activate eu
+
+eu -> fe ++ : Clicks on the session semester to edit
+fe -> ct ++ : getSessionSemesterPage()
+ct --> fe2 ++-- : Session Semester Page
+deactivate fe
+deactivate fe2
+
+fe2 -> ct ++ : getSessionSemester(sessionSemesterId)
+activate fe2
+ct -> db ++ : getSessionSemester(sessionSemesterId)
+db --> ct -- : sessionSemester
+ct --> fe2 -- : sessionSemester
+fe2 -> fe2 : showSessionSemester(sessionSemester)
+deactivate fe2
+
+eu -> fe2 ++ : Edit the session semester
+eu -> fe2 : Clicks on the Save button
+fe2 -> ct ++ : editSessionSemester(sessionSemester)
+
+alt Valid Input
+    ct -> db ++ : save(sessionSemester)
+    return venue
+    ct --> fe2 -- : sessionSemester
+    fe2 -> fe2 : updateSessionSemester(sessionSemester)
+    fe2 -> fe2 : showSuccessSnackbar(msg)
+else Invalid Input
+    activate ct
+    ct -> fe2 -- : showErrors(errors)
+    fe2 -> fe2 : showFailureSnackbar(msg)
+end
+
+deactivate eu
+
+@enduml

@@ -1,0 +1,31 @@
+@startuml FR_ADA_03
+title FR_ADA_03 - Delete Class
+skinparam maxMessageSize 125
+
+actor "End User" as eu
+boundary "Course Page" as fe
+' control "TimetableController" as ct
+' entity "Timetable" as en
+' database "Database" as db
+
+note across : This is a front-end only operation
+
+
+activate eu
+
+eu -> fe ++ : Click on the Delete button on the class to delete
+fe -> fe : showConfirmationDialog(msg)
+eu -> fe : Click on the Confirm button
+
+fe -> fe : deleteClass(id)
+fe -> fe : hideConfirmationDialog()
+fe -> fe -- : showSuccessSnackbar(msg)
+
+alt Cancel
+    eu -> fe ++ : Click on the Cancel button
+    fe -> fe : hideConfirmationDialog()
+end
+
+deactivate eu
+
+@enduml

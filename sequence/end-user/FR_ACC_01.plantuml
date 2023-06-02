@@ -1,0 +1,49 @@
+@startuml FR_ACC_01
+title FR_ACC_01 - Browse & Add Offered Courses
+skinparam maxMessageSize 125
+
+actor "End User" as eu
+boundary "Courses Page" as fe
+control "CourseController" as ct
+' entity "Timetable" as en
+database "Database" as db
+
+activate eu
+
+eu -> fe ++ : Click on the Browse button
+fe -> ct ++ : getSessionSemesters()
+ct -> db ++ : getSessionSemesters()
+return Session Semesters
+return Session Semesters
+fe -> fe -- : displayOfferedCoursesWindow(sessionSemesters)
+
+eu -> fe ++ : Select the session semester
+fe -> ct ++ : getOfferedCourses(sessionSemester)
+ct -> db ++ : getOfferedCourses(sessionSemester)
+return Offered Courses
+return Offered Courses
+fe -> fe -- : displayOfferedCourses(offerCourses)
+
+eu -> fe ++ : Select the offered course
+fe -> ct ++ : getSections(offeredCourse)
+ct -> db ++ : getSections(offeredCourse)
+return Sections
+return Sections
+fe -> fe -- : displaySections(sections)
+
+eu -> fe ++ : Select the section
+fe -> fe --: displayConfirmationWindow(section)
+
+alt Confirm
+    eu -> fe ++ : Click on the Confirm button
+    fe -> fe : addCourse(course, section)
+    fe -> fe -- : showSuccessSnackbar(msg)
+else Cancel
+    eu -> fe ++ : Click on the Cancel button
+    fe -> fe -- : closeConfirmationWindow()
+end
+
+
+deactivate eu
+
+@enduml

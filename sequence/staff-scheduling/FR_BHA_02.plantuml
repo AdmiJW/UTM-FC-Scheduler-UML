@@ -1,0 +1,33 @@
+@startuml FR_BHA_02
+title FR_BHA_02 - Edit Class
+skinparam maxMessageSize 125
+
+actor "Academic Office Staff" as eu
+boundary "Section Page" as fe
+control "ClassController" as ct
+database "Database" as db
+
+activate eu
+
+eu -> fe ++ : Edit the class
+eu -> fe : Clicks on the Save button
+fe -> ct ++ : updateClass(class)
+
+alt Valid Input
+    ct -> ct : clashCheck(class)
+    note right: FR_BBC_01
+
+    ct -> db ++ : save(class)
+    return class
+    ct --> fe -- : class
+    fe -> fe : updateClass(class)
+    fe -> fe : showSuccessSnackbar(msg)
+else Invalid Input
+    activate ct
+    ct -> fe -- : showErrors(errors)
+    fe -> fe : showFailureSnackbar(msg)
+end
+
+deactivate eu
+
+@enduml

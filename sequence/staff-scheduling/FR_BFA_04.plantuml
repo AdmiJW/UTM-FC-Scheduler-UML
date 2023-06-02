@@ -1,0 +1,29 @@
+@startuml FR_BFA_04
+title FR_BFA_04 - View Course
+skinparam maxMessageSize 125
+
+actor "Academic Office Staff" as eu
+boundary "Courses Page" as fe
+control "CourseController" as ct
+database "Database" as db
+
+activate eu
+
+eu -> ct ++ : getCoursesPage()
+ct --> fe -- : Courses Page
+
+activate fe
+fe -> ct ++ : getCourses()
+ct -> db ++ : getCourses()
+db --> ct -- : Courses
+ct --> fe -- : Courses
+fe -> fe -- : showCourses(courses)
+
+eu -> fe ++ : Enters the search and sort criteria
+fe -> fe : filterCourses(criteria)
+fe -> fe : sortCourses(criteria)
+fe -> fe -- : showCourses(courses)
+
+deactivate eu
+
+@enduml

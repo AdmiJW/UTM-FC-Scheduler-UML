@@ -1,0 +1,33 @@
+@startuml FR_BEA_03
+title FR_BEA_03 - Delete Test Case
+skinparam maxMessageSize 125
+
+actor "Academic Office Staff" as eu
+boundary "Test Cases Page" as fe
+control "TestCaseController" as ct
+database "Database" as db
+
+activate eu
+
+eu -> fe ++ : Clicks on Delete button of test case
+fe -> fe : showConfirmationDialog(msg)
+eu -> fe : Click on the Confirm button
+
+fe -> ct ++ : deleteTestCase(id)
+ct -> db ++ : deleteTestCase(id)
+db --> ct -- : Test Case deleted
+ct --> fe -- : Test Case deleted
+fe -> fe : onDeleted()
+fe -> fe : closeConfirmationDialog()
+fe -> fe -- : showSuccessSnackbar(msg)
+
+alt Cancel
+    eu -> fe ++ : Click on the Cancel button
+    fe -> fe : hideConfirmationDialog()
+end
+
+
+
+deactivate eu
+
+@enduml

@@ -3,15 +3,15 @@ title FR_ABA_04 - View Timetable
 skinparam maxMessageSize 125
 
 actor "End User" as eu
-boundary "Timetable Page" as fe
+boundary "Timetables Page" as fe
 control "TimetableController" as ct
 ' entity "Timetable" as en
 ' database "Database" as db
 
 activate eu
 
-eu -> ct ++ : Get Timetable Page
-ct -> fe ++-- : Timetable Page
+eu -> ct ++ : Get Timetables Page
+ct -> fe ++-- : Timetables Page
 fe -> fe : getTimetables()
 fe -> fe -- : showTimetables(timetables)
 

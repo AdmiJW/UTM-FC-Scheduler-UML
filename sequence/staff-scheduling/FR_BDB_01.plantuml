@@ -1,0 +1,30 @@
+@startuml FR_BCB_01
+title FR_BCB_01 - Generate Lecturer Timetable
+skinparam maxMessageSize 125
+
+actor "Academic Office Staff" as eu
+boundary "Lecturer Page" as fe
+control "LecturerController" as ct
+database "Database" as db
+
+activate eu
+
+eu -> fe ++ : Clicks on the Generate button
+fe -> fe : showLoadingIndicator()
+
+fe -> ct ++ : generateLecturerTimetable(lecturerId)
+ct -> db ++ : getlecturerTimetableData(lecturerId)
+db --> ct -- : LecturerTimetableData
+ct -> ct : clashCheck(lecturerTimetableData)
+note right : FR_BCB_01
+
+ct --> fe -- : LecturerTimetableData
+
+fe -> fe : generateVisualTimetable(lecturerTimetableData)
+fe -> fe : showLecturerTimetable(lecturerTimetable)
+fe -> fe : hideLoadingIndicator()
+fe -> fe : showSuccessSnackbar(msg)
+
+deactivate eu
+
+@enduml

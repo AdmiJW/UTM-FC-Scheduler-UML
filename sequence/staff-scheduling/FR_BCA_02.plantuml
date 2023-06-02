@@ -1,0 +1,45 @@
+@startuml FR_BCA_02
+title FR_BCA_02 - Edit Venue
+skinparam maxMessageSize 125
+
+actor "Academic Office Staff" as eu
+boundary "Venues Page" as fe
+boundary "Venue Page" as fe2
+control "VenueController" as ct
+database "Database" as db
+
+activate eu
+
+eu -> fe ++ : Clicks on the venue to edit
+fe -> ct ++ : getVenuePage()
+ct --> fe2 ++-- : Venue Page
+deactivate fe
+deactivate fe2
+
+fe2 -> ct ++ : getVenue(venueId)
+activate fe2
+ct -> db ++ : getVenue(venueId)
+db --> ct -- : venue
+ct --> fe2 -- : venue
+fe2 -> fe2 : showVenue(venue)
+deactivate fe2
+
+eu -> fe2 ++ : Edit the venue
+eu -> fe2 : Clicks on the Save button
+fe2 -> ct ++ : editVenue(venue)
+
+alt Valid Input
+    ct -> db ++ : save(venue)
+    return venue
+    ct --> fe2 -- : venue
+    fe2 -> fe2 : updateVenue(venue)
+    fe2 -> fe2 : showSuccessSnackbar(msg)
+else Invalid Input
+    activate ct
+    ct -> fe2 -- : showErrors(errors)
+    fe2 -> fe2 : showFailureSnackbar(msg)
+end
+
+deactivate eu
+
+@enduml

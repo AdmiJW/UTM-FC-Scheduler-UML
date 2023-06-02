@@ -1,0 +1,45 @@
+@startuml FR_BGA_02
+title FR_BGA_02 - Edit Section
+skinparam maxMessageSize 125
+
+actor "Academic Office Staff" as eu
+boundary "Sections Page" as fe
+boundary "Section Page" as fe2
+control "SectionController" as ct
+database "Database" as db
+
+activate eu
+
+eu -> fe ++ : Clicks on the section to edit
+fe -> ct ++ : getSectionPage()
+ct --> fe2 ++-- : Section Page
+deactivate fe
+deactivate fe2
+
+fe2 -> ct ++ : getSection(sectionId)
+activate fe2
+ct -> db ++ : getSection(sectionId)
+db --> ct -- : section
+ct --> fe2 -- : section
+fe2 -> fe2 : showSection(section)
+deactivate fe2
+
+eu -> fe2 ++ : Edit the section
+eu -> fe2 : Clicks on the Save button
+fe2 -> ct ++ : updateSection(section)
+
+alt Valid Input
+    ct -> db ++ : save(section)
+    return section
+    ct --> fe2 -- : section
+    fe2 -> fe2 : updateSection(section)
+    fe2 -> fe2 : showSuccessSnackbar(msg)
+else Invalid Input
+    activate ct
+    ct -> fe2 -- : showErrors(errors)
+    fe2 -> fe2 : showFailureSnackbar(msg)
+end
+
+deactivate eu
+
+@enduml
