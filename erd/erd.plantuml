@@ -88,11 +88,11 @@ entity Class {
 
 AcademicStaff ||-o{ SessionSemester : "creates"
 SessionSemester ||--o{ Venue : "contains"
-SessionSemester ||--o{ Lecturer : "contains"
+SessionSemester ||-o{ Lecturer : "contains"
 SessionSemester ||--o{ Subject : "offers"
 Subject ||--o{ Section : "offers"
 Section ||--o{ Class : "hosts"
-Section }o--o| Lecturer : "teaches"
+Section }o-o| Lecturer : "teaches"
 Venue |o--o{ Class : "hosts"
 
 
