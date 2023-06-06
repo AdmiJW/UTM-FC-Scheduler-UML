@@ -16,23 +16,25 @@ left to right direction
 
 ' Use Cases
 rectangle "UTM FC Scheduler - Academic Office Staff Module" {
-package "A - Auth Module" {
-    usecase (FR_BAA_01 \n Login) as FR_BAA_01
-    usecase (FR_BAA_02 \n Logout) as FR_BAA_02
-}
+
+    package "A - Auth Module" {
+        usecase (FR_BAA_01 \n Login) as FR_BAA_01
+        usecase (FR_BAA_02 \n Logout) as FR_BAA_02
+    }
 
 
-package "B - Session Semester Module" {
-    usecase (FR_BBA_01 \n Add Session Semester) as FR_BBA_01
-    usecase (FR_BBA_02 \n Edit Session Semester) as FR_BBA_02
-    usecase (FR_BBA_03 \n Delete Session Semester) as FR_BBA_03
-    usecase (FR_BBA_04 \n View Session Semester) as FR_BBA_04
+    package "B - Session Semester Module" {
+        usecase (FR_BBA_01 \n Add Session Semester) as FR_BBA_01
+        usecase (FR_BBA_02 \n Edit Session Semester) as FR_BBA_02
+        usecase (FR_BBA_03 \n Delete Session Semester) as FR_BBA_03
+        usecase (FR_BBA_04 \n View Session Semester) as FR_BBA_04
 
-    usecase (FR_BBB_01 \n Export Session Semester) as FR_BBB_01
+        usecase (FR_BBB_01 \n Export Session Semester) as FR_BBB_01
 
-    usecase (FR_BBC_01 \n Clash checking) as FR_BBC_01
+        usecase (FR_BBC_01 \n Clash checking) as FR_BBC_01
+    }
 
-    
+        
     package "C - Venue Module" {
         usecase (FR_BCA_01 \n Add Venue) as FR_BCA_01
         usecase (FR_BCA_02 \n Edit Venue) as FR_BCA_02
@@ -52,7 +54,7 @@ package "B - Session Semester Module" {
         usecase (FR_BDB_01 \n Generate Lecturer Timetable) as FR_BDB_01
     }
 
-    
+
     package "E - Test Case Module" {
         usecase (FR_BEA_01 \n Add Test Case) as FR_BEA_01
         usecase (FR_BEA_02 \n Edit Test Case) as FR_BEA_02
@@ -68,23 +70,24 @@ package "B - Session Semester Module" {
         usecase (FR_BFA_02 \n Edit Course) as FR_BFA_02
         usecase (FR_BFA_03 \n Delete Course) as FR_BFA_03
         usecase (FR_BFA_04 \n View Course) as FR_BFA_04
+    }
 
-        package "G - Section Module" {
-            usecase (FR_BGA_01 \n Add Section) as FR_BGA_01
-            usecase (FR_BGA_02 \n Edit Section) as FR_BGA_02
-            usecase (FR_BGA_03 \n Delete Section) as FR_BGA_03
-            usecase (FR_BGA_04 \n View Section) as FR_BGA_04
-
-            package "H - Class Module" {
-                usecase (FR_BHA_01 \n Add Class) as FR_BHA_01
-                usecase (FR_BHA_02 \n Edit Class) as FR_BHA_02
-                usecase (FR_BHA_03 \n Delete Class) as FR_BHA_03
-                usecase (FR_BHA_04 \n View Class) as FR_BHA_04
-            }
-        }
+    package "G - Section Module" {
+        usecase (FR_BGA_01 \n Add Section) as FR_BGA_01
+        usecase (FR_BGA_02 \n Edit Section) as FR_BGA_02
+        usecase (FR_BGA_03 \n Delete Section) as FR_BGA_03
+        usecase (FR_BGA_04 \n View Section) as FR_BGA_04
+    }
+    
+    package "H - Class Module" {
+        usecase (FR_BHA_01 \n Add Class) as FR_BHA_01
+        usecase (FR_BHA_02 \n Edit Class) as FR_BHA_02
+        usecase (FR_BHA_03 \n Delete Class) as FR_BHA_03
+        usecase (FR_BHA_04 \n View Class) as FR_BHA_04
     }
 }
-}
+
+
 
 ' Associations
 AOS -- FR_BAA_01

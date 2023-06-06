@@ -16,7 +16,6 @@ left to right direction
 
 ' Use Cases
 rectangle "UTM FC Scheduler - Academic Office Staff Module" {
-package "B - Session Semester Module" {
     package "E - Test Case Module" {
         usecase (FR_BEA_01 \n Add Test Case) as FR_BEA_01
         usecase (FR_BEA_02 \n Edit Test Case) as FR_BEA_02
@@ -25,7 +24,6 @@ package "B - Session Semester Module" {
 
         usecase (FR_BEB_01 \n Execute Test Case) as FR_BEB_01
     }
-}
 }
 
 ' Associations

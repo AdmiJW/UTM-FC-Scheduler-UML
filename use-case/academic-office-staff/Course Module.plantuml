@@ -16,14 +16,12 @@ left to right direction
 
 ' Use Cases
 rectangle "UTM FC Scheduler - Academic Office Staff Module" {
-package "B - Session Semester Module" {
     package "F - Course Module" {
         usecase (FR_BFA_01 \n Add Course) as FR_BFA_01
         usecase (FR_BFA_02 \n Edit Course) as FR_BFA_02
         usecase (FR_BFA_03 \n Delete Course) as FR_BFA_03
         usecase (FR_BFA_04 \n View Course) as FR_BFA_04
     }
-}
 }
 
 ' Associations

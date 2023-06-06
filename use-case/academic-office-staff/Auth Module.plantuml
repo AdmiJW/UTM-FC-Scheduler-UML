@@ -16,10 +16,10 @@ left to right direction
 
 ' Use Cases
 rectangle "UTM FC Scheduler - Academic Office Staff Module" {
-package "A - Auth Module" {
-    usecase (FR_BAA_01 \n Login) as FR_BAA_01
-    usecase (FR_BAA_02 \n Logout) as FR_BAA_02
-}
+    package "A - Auth Module" {
+        usecase (FR_BAA_01 \n Login) as FR_BAA_01
+        usecase (FR_BAA_02 \n Logout) as FR_BAA_02
+    }
 }
 
 ' Associations

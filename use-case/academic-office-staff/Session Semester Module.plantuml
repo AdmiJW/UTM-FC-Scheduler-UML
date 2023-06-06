@@ -16,17 +16,16 @@ left to right direction
 
 ' Use Cases
 rectangle "UTM FC Scheduler - Academic Office Staff Module" {
+    package "B - Session Semester Module" {
+        usecase (FR_BBA_01 \n Add Session Semester) as FR_BBA_01
+        usecase (FR_BBA_02 \n Edit Session Semester) as FR_BBA_02
+        usecase (FR_BBA_03 \n Delete Session Semester) as FR_BBA_03
+        usecase (FR_BBA_04 \n View Session Semester) as FR_BBA_04
 
-package "B - Session Semester Module" {
-    usecase (FR_BBA_01 \n Add Session Semester) as FR_BBA_01
-    usecase (FR_BBA_02 \n Edit Session Semester) as FR_BBA_02
-    usecase (FR_BBA_03 \n Delete Session Semester) as FR_BBA_03
-    usecase (FR_BBA_04 \n View Session Semester) as FR_BBA_04
+        usecase (FR_BBB_01 \n Export Session Semester) as FR_BBB_01
 
-    usecase (FR_BBB_01 \n Export Session Semester) as FR_BBB_01
-
-    usecase (FR_BBC_01 \n Clash checking) as FR_BBC_01
-}
+        usecase (FR_BBC_01 \n Clash checking) as FR_BBC_01
+    }
 }
 
 ' Associations

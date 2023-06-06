@@ -19,26 +19,27 @@ Lecturer --|> EU
 
 ' Use Cases
 rectangle "UTM FC Scheduler - End User Module" {
-package "A - Auth Module" {
-    usecase (FR_AAA_01 \n Login) as FR_AAA_01
-    usecase (FR_AAA_02 \n Logout) as FR_AAA_02
-}
+    package "A - Auth Module" {
+        usecase (FR_AAA_01 \n Login) as FR_AAA_01
+        usecase (FR_AAA_02 \n Logout) as FR_AAA_02
+    }
 
 
-package "B - Timetable Module" {
-    ' CRUD Timetable operation
-    usecase (FR_ABA_01 \n Create Timetable) as FR_ABA_01
-    usecase (FR_ABA_02 \n Update Timetable) as FR_ABA_02
-    usecase (FR_ABA_03 \n Delete Timetable) as FR_ABA_03
-    usecase (FR_ABA_04 \n View Timetable) as FR_ABA_04
+    package "B - Timetable Module" {
+        ' CRUD Timetable operation
+        usecase (FR_ABA_01 \n Create Timetable) as FR_ABA_01
+        usecase (FR_ABA_02 \n Update Timetable) as FR_ABA_02
+        usecase (FR_ABA_03 \n Delete Timetable) as FR_ABA_03
+        usecase (FR_ABA_04 \n View Timetable) as FR_ABA_04
 
-    usecase (FR_ABB_01 \n Export Timetable) as FR_ABB_01
-    usecase (FR_ABB_02 \n Import Timetable) as FR_ABB_02
+        usecase (FR_ABB_01 \n Export Timetable) as FR_ABB_01
+        usecase (FR_ABB_02 \n Import Timetable) as FR_ABB_02
 
-    usecase (FR_ABC_01 \n Clash Checking) as FR_ABC_01
+        usecase (FR_ABC_01 \n Clash Checking) as FR_ABC_01
 
-    usecase (FR_ABD_01 \n Generate Timetable) as FR_ABD_01
-    usecase (FR_ABD_02 \n Configure Generation Preferences) as FR_ABD_02
+        usecase (FR_ABD_01 \n Generate Timetable) as FR_ABD_01
+        usecase (FR_ABD_02 \n Configure Generation Preferences) as FR_ABD_02
+    }
 
 
 
@@ -58,17 +59,16 @@ package "B - Timetable Module" {
         usecase (FR_ACC_01 \n Browse & Add Offered Courses) as FR_ACC_01
         usecase (FR_ACC_02 \n Retrieve Registered Courses - Lecturer) as FR_ACC_02
         usecase (FR_ACC_03 \n Retrieve Registered Courses - Student) as FR_ACC_03
-
-
-        package "D - Class Module" {
-            ' CRUD Class operation
-            usecase (FR_ADA_01 \n Create Class) as FR_ADA_01
-            usecase (FR_ADA_02 \n Update Class) as FR_ADA_02
-            usecase (FR_ADA_03 \n Delete Class) as FR_ADA_03
-            usecase (FR_ADA_04 \n View Class) as FR_ADA_04
-        }
     }
-}
+
+    
+    package "D - Class Module" {
+        ' CRUD Class operation
+        usecase (FR_ADA_01 \n Create Class) as FR_ADA_01
+        usecase (FR_ADA_02 \n Update Class) as FR_ADA_02
+        usecase (FR_ADA_03 \n Delete Class) as FR_ADA_03
+        usecase (FR_ADA_04 \n View Class) as FR_ADA_04
+    }
 }
 
 ' Associations
